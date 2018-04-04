@@ -1,0 +1,46 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Dados da Cônjuge</div>
+    <hr class="divider" />
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Nome:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{conjuge?.nome == null ? '&nbsp;' : conjuge?.nome}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Cpf:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ conjuge?.cpf == null ? '&nbsp;' : conjuge?.cpf | cpfMask }} </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Ocupação:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ conjuge?.ocupacao == null ? '&nbsp;' : conjuge?.ocupacao}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Renda Total:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ conjuge?.rendaTotal == 0 ? '&nbsp;' : conjuge?.rendaTotal | currency: 'BRL':true}}</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Avalista:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold" *ngIf="conjuge?.cpf != null && conjuge?.conjugeAvalista">SIM</span>
+        <span class="label-text bold" *ngIf="conjuge?.cpf != null && !conjuge?.conjugeAvalista">NÃO</span>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-sm-12 no-padding">
+    <section>
+        <div class="gray lighten-4">
+            <spinner [loading]='loading'></spinner>
+            <barra-fixa-conceito [idProposta]="idProposta"></barra-fixa-conceito>                    
+            <barra-fixa-status [idProposta]="idProposta"></barra-fixa-status>
+            <barra-fixa-perfil-cliente [perfilCliente]='perfilCliente' [idProposta]="idProposta"></barra-fixa-perfil-cliente>
+            <barra-fixa-perfil-profissional [perfilProfissional]='perfilProfissional'></barra-fixa-perfil-profissional>
+            <barra-fixa-dados-operacao [operacao]='operacao'></barra-fixa-dados-operacao>
+            <barra-fixa-dados-conjuge [conjuge]='conjuge'></barra-fixa-dados-conjuge>
+            <barra-fixa-avalista [hidden]="avalistas == null" [avalistas]='avalistas'></barra-fixa-avalista>
+        </div>
+    </section>
+</div>

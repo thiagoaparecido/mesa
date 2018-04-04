@@ -1,0 +1,108 @@
+
+
+<!--COMPONENTE DADOS OPERACAO -->
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Dados da Operação</div>
+    <hr class="divider" />
+</div>
+<div class="row">       
+    
+    <div class="col-4">
+        <span class="label">Tipo Operação:</span>
+    </div>                               
+    <div class="col-8">
+        <span class="label-text">{{ operacao?.tipoOperacao == null ? '&nbsp;' : operacao?.tipoOperacao }}</span>
+    </div>    
+    
+    <div class="col-4">
+            <span class="label">Fila:</span>
+        </div>                               
+        <div class="col-8">
+             <span class="label-text bold">{{ operacao?.fila == null ? '&nbsp;' : operacao?.fila }}</span>
+        </div>
+
+    <div class="col-4">
+        <span class="label">Revenda:</span>
+    </div>                               
+    <div class="col-8">
+            <span class="label-text">{{ operacao?.revenda == null ? '&nbsp;' : operacao?.revenda}}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Condição:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text" *ngIf="operacao?.zero">NOVO</span>
+        <span class="label-text" *ngIf="!operacao?.zero">USADO</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Ano/Modelo:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ operacao?.anoFabricacao == null ? '&nbsp;' : operacao?.anoFabricacao }}/{{operacao?.anoModelo}}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Marca:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ operacao?.marca == null ? '&nbsp;' : operacao?.marca }}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Modelo:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ operacao?.modelo == null ? '&nbsp;' : operacao?.modelo }}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Versão:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text">{{ operacao?.versao == null || operacao?.versao == '-' ? '&nbsp;' : operacao?.versao }}</span>
+    </div>
+
+    <div class="col-4">
+            <span class="label">Valor Mercado:</span>
+    </div>                              
+    <div class="col-8">
+            <span class="label-text">{{ operacao?.valorMercado == 0 ? '&nbsp;' : operacao?.valorMercado | currency:'BRL':true }}</span>
+    </div> 
+
+    <div class="col-4">
+            <span class="label">Valor do Veí­culo:</span>
+        </div>
+        <div class="col-8">
+            <span class="label-text bold">{{ operacao?.valorVeiculo == 0 ? '&nbsp;' : operacao?.valorVeiculo | currency: 'BRL':true}}  (<span class="bold"> {{ operacao?.percentualVeiculo == 0 ? '&nbsp;' : operacao?.percentualVeiculo | number:'1.0-2'}}%</span>)</span>
+        </div>  
+
+    <div class="col-4">
+        <span class="label">Valor da Entrada:</span>
+    </div>
+    <div class="col-8">
+        <!-- <span class="label-text" *ngIf="avalista?.telefoneDdd != null">({{ avalista?.telefoneDdd == null ? '&nbsp;' : avalista?.telefoneDdd }})</span> -->
+        <span class="label-text bold" *ngIf="operacao?.valorEntrada > 0">{{ operacao?.valorEntrada == 0 ? '&nbsp;' : operacao?.valorEntrada | currency:'BRL':true }} (<span class="bold" *ngIf="operacao?.percentualEntrada > 0">{{ operacao?.percentualEntrada == 0 ? '&nbsp;' : operacao?.percentualEntrada | number:'1.0-2'}}%</span>)</span>
+    </div> 
+
+     <div class="col-4">
+        <span class="label">Valor Financiado:</span>
+    </div>                              
+    <div class="col-8">
+        <span class="label-text bold">{{ operacao?.valorFinanciado == 0 ? '&nbsp;' : operacao?.valorFinanciado | currency: 'BRL':true}} (<span class="bold">{{ operacao?.percentualFinanciado == 0 ? '&nbsp;' : operacao?.percentualFinanciado | number:'1.0-2'}}%</span>)</span>
+    </div>
+    
+    <div class="col-4">
+        <span class="label">Valor Parcela:</span>
+    </div>
+    <div class="col-8">        
+        <span class="label-text bold">{{ operacao?.valorParcela == 0 ? '&nbsp;' : operacao?.valorParcela | currency: 'BRL':true}} (<span class="bold">{{ operacao?.percentualParcela == 0 ? '&nbsp;' : operacao?.percentualParcela | number:'1.0-2'}}%</span>)</span>
+    </div>    
+    <div class="col-4">
+        <span class="label">Parcelas:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ operacao?.parcelas == 0 ? '&nbsp;' : operacao?.parcelas }}</span>
+    </div>
+</div>

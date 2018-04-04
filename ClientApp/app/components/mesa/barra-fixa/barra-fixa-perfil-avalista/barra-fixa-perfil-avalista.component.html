@@ -1,0 +1,85 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Perfil do Avalista</div>
+    <hr class="divider" />
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Nome:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ avalista?.nome == null ? '&nbsp;' : avalista?.nome}}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Nascimento:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+         <span class="label-text bold">{{ avalista?.dataNascimento == null ? '&nbsp;' : avalista?.dataNascimento | date: 'dd/MM/yyyy' }} (
+            <span>{{ avalista?.idade == 0 ? '&nbsp;' : avalista?.idade | number:'1.0-1'}} anos</span>)</span>           
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Estado Civil:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ avalista?.estadoCivil == null ? '&nbsp;' : avalista?.estadoCivil}}(A)</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">CPF:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.cpf == null ? '&nbsp;' : avalista?.cpf | cpfMask }}</span>      
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">CEP:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.cep == null ? '&nbsp;' : avalista?.cep | cepMask}}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Endereço:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.logradouro == null ? '&nbsp;' : avalista?.logradouro }}</span>
+    </div>
+
+    <div class="col-sm-3 line-heigth20">
+        <span class="label">Número:</span>
+    </div>
+    <div class="col-sm-2">
+        <span class="label-text">{{ avalista?.numero == null ? '&nbsp;' : avalista?.numero }}</span>
+    </div>
+    <div class="col-sm-3">
+        <span class="label">Compl.:</span>
+    </div>
+    <div class="col-sm-4">
+        <span class="label-text">{{ avalista?.complemento == null ? '&nbsp;' : avalista?.complemento }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Cidade:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.cidade == null ? '&nbsp;' : avalista?.cidade }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Telefone:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text" *ngIf="avalista?.telefoneDdd != null">({{ avalista?.telefoneDdd == null ? '&nbsp;' : avalista?.telefoneDdd }})</span>
+        <span class="label-text">{{ avalista?.telefoneNumero == null ? '&nbsp;' : avalista?.telefoneNumero | telefoneMask}}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Celular:</span>
+    </div>
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text" *ngIf="avalista?.celularDdd != null">({{ avalista?.celularDdd == null ? '&nbsp;' : avalista?.celularDdd }})</span>
+        <span class="label-text">{{ avalista?.celularNumero == null ? '&nbsp;' : avalista?.celularNumero | celularMask}}</span>
+    </div>
+
+</div>

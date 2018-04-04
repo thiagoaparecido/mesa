@@ -1,0 +1,87 @@
+<div class="conteudo-principal-titulo">    
+    <div class="col-sm-6 left label-legend label-10 divider">{{ idProposta }}</div>
+    <div class="col-sm-6 right label-legend label-10 divider">Perfil do Cliente</div>
+</div>
+
+<!--COMPONENTE LINHA 1X1 (1 LABEL - 1 INFORMACAO) -->
+<div class="col-sm-4 no-padding">
+    <span class="label">Nome:</span>
+</div>                               
+<div class="col-sm-8">
+    <span class="label-text bold">{{ perfilCliente?.nome }}</span>
+</div>
+    
+<!-- FIM COMPONENTE LINHA 1X1 (1 LABEL - 1 INFORMACAO) -->
+
+<div class="col-sm-4 no-padding">
+    <span class="label">Nascimento:</span>
+</div>
+<div class="col-sm-8">                                    
+    <!-- <span class="label-text bold">{{ perfilCliente?.dtNascimento | date: 'dd/MM/yyyy' }} (<span class="bold">{{perfilCliente?.idade | number:'1.0-1'}} anos</span>)</span> -->
+    <span class="label-text bold">{{ perfilCliente?.dtNascimento | date: 'dd/MM/yyyy' }} (<span class="bold">{{perfilCliente?.idade | number:'1.0-1'}} anos</span>)</span>
+</div>
+
+<div class="col-sm-4 no-padding">
+    <span class="label">Estado Civil:</span>
+</div>
+<div class="col-sm-8">
+    <span class="label-text bold">{{ perfilCliente?.estadoCivil }}(A)</span>
+</div>
+
+<div class="col-sm-4 no-padding">
+    <span class="label">CPF:</span>
+</div>
+<div class="col-sm-8">                                    
+    <span class="label-text">{{ perfilCliente?.cpf | cpfMask }}</span>
+</div>
+
+<div class="col-sm-4 no-padding">
+        <span class="label">CEP:</span>
+</div>
+<div class="col-sm-8">                                    
+    <span class="label-text">{{ perfilCliente?.cep | cepMask }}</span>
+</div>
+    
+<div class="col-sm-4 no-padding">
+    <span class="label">Endereço:</span>
+</div>
+<div class="col-sm-8">
+    <span class="label-text">{{ perfilCliente?.logradouro == null ? '&nbsp;' : perfilCliente?.logradouro }}</span>
+</div>
+
+<div class="col-sm-3 no-padding">
+    <span class="label">Número:</span>
+</div>
+<div class="col-sm-2">
+    <span class="label-text">{{ perfilCliente?.numero == null ? '&nbsp;' : perfilCliente?.numero }}</span>
+</div>
+<div class="col-sm-3">
+    <span class="label">Compl.:</span>
+</div>
+<div class="col-sm-4">
+        <span class="label-text">{{ perfilCliente?.complemento == null ? '&nbsp;' : perfilCliente?.complemento }}</span>
+</div>
+
+<div class="col-sm-4 no-padding">
+    <span class="label">Cidade:</span>
+</div>
+<div class="col-sm-8">
+    <span class="label-text">{{ perfilCliente?.cidade == null ? '&nbsp;' : perfilCliente?.cidade }}</span>
+</div>
+
+<div class="col-sm-4 no-padding">
+        <span class="label">Telefone:</span>
+</div>
+<div class="col-sm-8">
+    <span class="label-text" *ngIf="perfilCliente?.telefoneDdd != 0">({{ perfilCliente?.telefoneDdd == null ? '&nbsp;' : perfilCliente?.telefoneDdd }})</span>
+    <span class="label-text">{{ perfilCliente?.telefoneNumero == null ? '&nbsp;' : perfilCliente?.telefoneNumero | telefoneMask}}</span>              
+</div>
+
+<div class="col-sm-4 no-padding">
+    <span class="label">Celular:</span>
+</div>
+<div class="col-sm-8">
+        <span class="label-text" *ngIf="perfilCliente?.celularDdd != 0">({{ perfilCliente?.celularDdd == null ? '&nbsp;' : perfilCliente?.celularDdd }})</span>
+        <span class="label-text">{{ perfilCliente?.celularNumero == null ? '&nbsp;' : perfilCliente?.celularNumero | celularMask}}</span>                      
+    <span class="label-text"> </span>
+</div>

@@ -1,0 +1,61 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Perfil Profissional Avalista</div>
+    <hr class="divider" />
+</div>
+<div class="row">
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Oucupação:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ avalista?.ocupacao == null ? '&nbsp;' : avalista?.ocupacao }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Empresa:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ avalista?.profissaoEmpresa == null ? '&nbsp;' : avalista?.profissaoEmpresa }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Profissão:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.profissaoCargo == null ? '&nbsp;' : avalista?.profissaoCargo }}</span>
+    </div>
+
+    <!-- <div class="col-sm-4">
+        <span class="label">Tempo:</span>
+    </div>
+    <div class="col-sm-8">
+        <span class="label-text bold">{{ avalista?.tempoAnos == null ? '&nbsp;' : avalista?.tempoAnos }} ANOS E {{ avalista?.tempoMeses }} MESES</span>
+    </div> -->
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Renda Mensal:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.renda == 0 ? '&nbsp;' : avalista?.renda | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Renda Adicional:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text">{{ avalista?.rendaAdicional == 0 ? '&nbsp;' : avalista?.rendaAdicional | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Renda Total:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text bold">{{ avalista?.rendaTotal == 0 ? '&nbsp;' : avalista?.rendaTotal | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-4 line-heigth20">
+        <span class="label">Telefone:</span>
+    </div>                               
+    <div class="col-sm-8 line-heigth20">
+        <span class="label-text"> ({{avalista?.profissaoDdd == null ? '&nbsp;' : avalista?.profissaoDdd }}) {{ avalista?.profissaoTelefone == null ? '&nbsp;' : avalista?.profissaoTelefone | telefoneMask}}</span>
+    </div>                                                                                                                                                                                                        
+</div>

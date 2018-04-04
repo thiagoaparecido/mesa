@@ -1,0 +1,64 @@
+<!--COMPONENTE PERFIL PROFISSIONAL -->
+<div class="conteudo-principal-titulo">
+    <div class="right label-legend label-10">Perfil do Profissional</div>
+    <hr class="divider" />
+</div>
+<div class="row">
+    <div class="col-4">
+        <span class="label">Ocupação:</span>
+    </div>                               
+    <div class="col-8">
+        <span class="label-text bold">{{ perfilProfissional?.ocupacao == null ? '&nbsp;' : perfilProfissional?.ocupacao }}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Empresa:</span>
+    </div>
+    <div class="col-8">                                    
+        <span class="label-text bold">{{ perfilProfissional?.empresa == null ? '&nbsp;' : perfilProfissional?.empresa }}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Profissão:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text">{{ perfilProfissional?.dsProfissao == null ? '&nbsp;' : perfilProfissional?.dsProfissao }}</span>
+    </div>
+
+    <!-- <div class="col-4">
+        <span class="label">Tempo:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ perfilProfissional?.tempoAnos == null ? '&nbsp;' : perfilProfissional?.tempoAnos }} ANOS E {{ perfilProfissional?.tempoMeses }} MESES</span>
+    </div> -->
+
+    <div class="col-4">
+        <span class="label">Renda Mensal:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text">{{ perfilProfissional?.renda == 0 ? '&nbsp;' : perfilProfissional?.renda | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-4">
+        <span class="label">Renda Adicional:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text">{{ perfilProfissional?.rendaAdicional == 0 ? '&nbsp;' : perfilProfissional?.rendaAdicional | currency:'BRL':true }}</span>
+    </div>   
+
+    <div class="col-4">
+        <span class="label">Renda Total:</span>
+    </div>
+    <div class="col-8">
+        <span class="label-text bold">{{ perfilProfissional?.rendaTotal == 0 ? '&nbsp;' : perfilProfissional?.rendaTotal | currency:'BRL':true }}</span>
+    </div>      
+
+    <div class="col-4">
+        <span class="label">Telefone:</span>
+    </div>
+    <div class="col-8">                
+        <span class="label-text" *ngIf="perfilProfissional?.telefoneDdd != 0">({{ perfilProfissional?.telefoneDdd == null ? '&nbsp;' : perfilProfissional?.telefoneDdd }})</span>        
+        <span class="label-text">{{ perfilProfissional?.telefoneNumero == null ? '&nbsp;' : perfilProfissional?.telefoneNumero | telefoneMask}}</span>          
+        <span class="label-text">{{ perfilProfissional?.telefoneRamal == null ? '&nbsp;' : perfilProfissional?.telefoneRamal | telefoneMask}}</span>
+    </div>
+</div> 

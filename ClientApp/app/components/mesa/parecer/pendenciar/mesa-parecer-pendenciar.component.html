@@ -1,0 +1,38 @@
+<form novalidate [formGroup]="myForm">
+    <div class="parecer-grid-docs-adicionais">
+        <table class="table table-striped">
+            <thead>
+                <tr class="safra-cor">
+                    <th>
+                        <div class="label white-text">MOTIVO DO PENDENCIAMENTO</div>
+                    </th>
+                    <th>
+                        <div class="label">SELECIONADO</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let motivo of motivos">
+                    <td>{{ motivo.dsMotivo | uppercase }}</td>
+                    <td>
+                        <input type="checkbox" (change)="adicionalChange(motivo.idMotivo, $event.target.checked)" data-toggle="toggle" data-style="slow" data-size="mini">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix margin-top-20"></div>
+    <div class="row form-group">
+        <div class="col-md-10 parecer-area-obs">
+            <div class="label pull-right">Observações:</div>
+            <div class="clearfix divider"></div>
+            <!-- Solicitado pelo Thiago Nunes a retirada da obrigatóriedade do campo Observação. -->
+            <textarea formControlName="observacao" class="parecer-txt-obs" maxlength="100"></textarea>
+        </div>
+        <div class="col-md-2 text-center align-middle">
+            <button class="btn btn-danger btn-lg text-center parecer-btn-acao" [disabled]="(!myForm.valid || motivosSelecionadas.length == 0)" (click)="pendenciar()">PENDENCIAR</button>
+        </div>
+    </div>
+</form>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

@@ -1,0 +1,115 @@
+<form novalidate [formGroup]="myForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="label">TEMPO DE AGENDAMENTO</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="btn btn-lg btn-primary text-left margin-10" (click)="resumoAgendamento(10)">
+                            <div class="row">
+                                <div class="col-3">+</div>
+                                <div class="col-8 center">
+                                    <span class="h1">10</span>
+                                    <br />minutos</div>
+                                <input type="radio" class="hidden" name="tempo" id="tempo" />
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="btn btn-lg btn-warning text-left margin-10" (click)="resumoAgendamento(20)">
+                            <div class="row">
+                                <div class="col-3">+</div>
+                                <div class="col-8 center">
+                                    <span class="h1">20</span>
+                                    <br />minutos</div>
+                                <input type="radio" class="hidden" name="tempo" id="tempo" />
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="btn btn-lg btn-danger text-left margin-10" (click)="resumoAgendamento(30)">
+                            <div class="row">
+                                <div class="col-3">+</div>
+                                <div class="col-8 center">
+                                    <span class="h1">30</span>
+                                    <br />minutos</div>
+                                <input type="radio" class="hidden" name="tempo" id="tempo" />
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="card-shadow width-100p border-radius-5">
+                        <table class="table table-striped table-hover">
+                            <thead class="safra-cor">
+                                <tr>
+                                    <th>
+                                        <div class="label white-text">MOTIVO DO AGENDAMENTO</div>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let motivo of motivos">
+                                    <td>
+                                        <label for="{{ motivo.idMotivo }}">{{ motivo.dsMotivo }}</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" class="btn btn-lg" formControlName="motivo" id="{{ motivo.idMotivo }}" value="{{ motivo.idMotivo }}"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="clearfix margin-top-20"></div>
+                <div class="row">
+                    <div class="card-shadow width-100p border-radius-5" *ngIf="exibirResumo">
+                        <table class="table table-striped table-hover">
+                            <thead class="safra-cor">
+                                <tr>
+                                    <th colspan="2">
+                                        <div class="label white-text">RESUMO DO AGENDAMENTO</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="parecer-card-resumo-agendamento">
+                                <tr>
+                                    <td>Horário Atual:</td>
+                                    <td>{{ horarioAtual | date: 'HH:mm' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tempo Adicionado:</td>
+                                    <td>00:{{ tempoAdicionado | date: 'mm' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Horário Agendado:</td>
+                                    <td>{{ horarioAgendado | date: 'HH:mm' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix margin-top-20"></div>
+        <div class="form-group" *ngIf="exibirResumo">
+            <div class="col-md-10 parecer-area-obs">
+                <div class="label pull-right">Parecer:</div>
+                <div class="clearfix divider"></div>
+                <textarea formControlName="parecer" class="parecer-txt-obs" maxlength="100"></textarea>
+            </div>
+            <div class="col-md-2 text-center align-middle">
+                <button class="btn btn-primary btn-lg text-center parecer-btn-acao" [disabled]="!myForm.valid" (click)="agendar()">AGENDAR</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

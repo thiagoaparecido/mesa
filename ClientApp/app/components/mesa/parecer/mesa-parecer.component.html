@@ -1,0 +1,48 @@
+<div class="margin-10">
+
+<div class="card text-center">
+  <div class="card-body gray">
+
+        <div class="title-perfil text-left safra-cor-text bold card-title">PARECER DA MESA DE CRÉDITO</div>
+        
+        <div class="padding-15">
+        
+            <div class="row">
+                    <div class="col-md-2 white-text">
+                        <!-- acoes -->
+                        <div *ngFor="let acao of acoes" class="margin-vertical-10">
+                            <label [ngClass]="getColor(acao?.dsAcao)" class="btn btn-lg btn-parecer left">
+                                <input type="radio" name="acao" value="{{ acao?.idAcao }}" (click)="exibirAcao(acao)" />
+                                <span class="h5 bold  margin-left-5">{{ acao.dsAcao }}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+
+                        <!-- painel das acoes -->
+                        <mesa-parecer-aprovar *ngIf="acao?.dsAcao == 'APROVAR'" [idProposta]="idProposta" [idAcao]="acao?.idAcao"></mesa-parecer-aprovar>
+                        <mesa-parecer-pendenciar *ngIf="acao?.dsAcao == 'PENDENCIAR'" [idProposta]="idProposta" [idAcao]="acao?.idAcao"></mesa-parecer-pendenciar>
+                        <mesa-parecer-recusar *ngIf="acao?.dsAcao == 'RECUSAR'" [idProposta]="idProposta" [idAcao]="acao?.idAcao"></mesa-parecer-recusar>
+                        <mesa-parecer-agendar *ngIf="acao?.dsAcao == 'AGENDAR'" [idProposta]="idProposta" [idAcao]="acao?.idAcao"></mesa-parecer-agendar>
+                        <mesa-parecer-encaminhar *ngIf="acao?.dsAcao == 'ENCAMINHAR'" [idProposta]="idProposta" [idAcao]="acao?.idAcao"></mesa-parecer-encaminhar>
+
+                      
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+  </div>
+</div>    
+
+
+
+
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

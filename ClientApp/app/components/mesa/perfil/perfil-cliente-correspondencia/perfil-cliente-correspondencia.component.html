@@ -1,0 +1,63 @@
+<div *ngIf="perfilCorrespondencia != null" class="well height-250">
+    <div class="row divider">
+        <div class="col-md-12">
+            <div class="title-perfil safra-cor-text bold">Endereço de Correspondência</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="margin-vertical-5">
+                <label class="label-text">Cep:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.cep" empty="N/I" (onSave)="getEndereco($event)"
+                        pattern="^[0-9]{5}-[0-9]{3}|^[0-9]{8}$" name="cep" min="8" max="9" pattern="^[0-9]{5}-[0-9]{3}|^[0-9]{8}$"
+                        placeholder="" (onError)="handleError($event, 'cep')"></inline-editor>
+                </div>
+            </div>
+            <div class="margin-vertical-5">
+                <label class="label">Número:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.numero" empty="N/I" (onSave)="gravar($event)"
+                        name="numero" min="1" max="5" pattern="^[0-9]{1,5}$" placeholder="" max="5" (onError)="handleError($event, 'número')"></inline-editor>
+                </div>
+            </div>
+            <div class="margin-vertical-5">
+                <label class="label">Bairro:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.bairro " empty="N/I" (onSave)="gravar($event)"
+                        name="bairro" placeholder="" min="3" max="30" (onError)="handleError($event, 'bairro')"></inline-editor>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="margin-vertical-5">
+                <label class="label">Endereço:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.logradouro" empty="N/I" (onSave)="gravar($event)"
+                        name="logradouro" min="3" max="60" pattern="^[a-zA-Z0-9_ ]{1,60}$" placeholder="" (onError)="handleError($event, 'endereço')"></inline-editor>
+                </div>
+            </div>
+            <div class="margin-vertical-5">
+                <label class="label">Complemento:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.complemento " empty="N/I" (onSave)="gravar($event)"
+                        name="complemento" placeholder="" max="30" (onError)="handleError($event, 'complemento')"></inline-editor>
+                </div>
+            </div>
+            <div class="margin-vertical-5">
+                <label class="label">Cidade:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilCorrespondencia.cidade" empty="N/I" (onSave)="gravar($event)"
+                        name="cidade" min="3" max="30" placeholder="" (onError)="handleError($event, 'cidade')"></inline-editor>
+                    &nbsp;-&nbsp;
+                    <inline-editor type="select" [disabled]="readonlyEstado" empty="N/I" [(ngModel)]="perfilCorrespondencia.idEstado" (onSave)="gravar($event)"
+                        [options]="listaEstados"></inline-editor>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>
+<cep-cidade *ngIf="exibirModalEnderecoCidade" [idProposta]="idProposta" [endereco]="cepCidade" [classe]="classe" [origem]="" (atualizarModal)="fecharModalEnderecoCidade($event)" ></cep-cidade>

@@ -1,0 +1,90 @@
+<div class="modal-common">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dados do Conjuge - Proposta {{ idProposta }}</h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="closeModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form novalidate [formGroup]="myform">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Nome:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(nome)">
+                                        <input class="form-control" formControlName="nome" type="text" id="nome" minlength="5" maxlength="60" pattern="^[a-zA-Z_ ]{1,60}$" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label">Data de Nascimento:</label>
+                                <div class="label-text">
+                                    <div class="form-group">
+                                        <input class="form-control" formControlName="dtNascimento" type="text" id="dtNascimento" data-toggle="datepicker" minlength="10" required>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div>
+                                <label class="label">Sexo:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(idSexo)">
+                                        <select class="form-control" formControlName="idSexo" [ngModel]="conjuge.idSexo" id="idSexo"  required>
+                                            <option *ngFor="let sexo of sexos" [ngValue]="sexo.idSexo">{{ sexo.dsSexo }}</option>
+                                        </select>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cpf:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(cpf)">
+                                        <input class="form-control" formControlName="cpf"  type="text" id="cpf" minlength="11" maxlength="14" pattern="^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}|^[0-9]{11}$" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label">Celular:</label>
+                                <div class="label-text">
+                                    <div class="col-md-4 form-group" [ngClass]="getFormClass(celularDdd)">
+                                        <input class="form-control" formControlName="celularDdd" type="text" id="celularDdd" minlength="2" maxlength="2" pattern="^[0-9]{2}$">
+                                    </div>
+                                    <div class="col-md-8 form-group" [ngClass]="getFormClass(celularNumero)">
+                                        <input class="form-control" type="text" formControlName="celularNumero" id="celularNumero" minlength="8" maxlength="12" pattern="^[0-9]{9}$">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label">Ocupação:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(idOcupacao)">
+                                        <select class="form-control" formControlName="idOcupacao" [ngModel]="conjuge.idOcupacao" id="idOcupacao" required>
+                                            <option *ngFor="let ocupacao of ocupacoes" [ngValue]="ocupacao.idNatOcupacao">{{ ocupacao.dsNatOcupacao }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Fechar</button>
+                <button type="button" [disabled]="!myform.valid" (click)="gravarConjuge()" class="btn btn-sm btn-safra small float-right">Gravar</button>
+                <!-- {{ myform.valid }}<br>
+                <br>Nome: {{ myform.controls.nome.valid }}
+                <br>Cpf: {{ myform.controls.cpf.valid }}
+                <br>DtNascimento: {{ myform.controls.dtNascimento.valid }}
+                <br>CelularDdd: {{ myform.controls.celularDdd.valid }}
+                <br>CelularNumero: {{ myform.controls.celularNumero.valid }} -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

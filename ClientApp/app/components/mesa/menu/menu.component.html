@@ -1,0 +1,34 @@
+<aside>   
+    <ul class="menu-bar blue-gray center no-bullets">
+        <a routerLink="alerta/{{idProposta}}" class="white-text"  [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">warning</i><br />Alertas
+            </li>
+        </a>
+        <a routerLink="perfil/{{idProposta}}" class="white-text" [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">person</i><br />Perfil
+            </li>   
+        </a>
+        <a routerLink="operacao/{{idProposta}}" class="white-text" [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">directions_car</i><br />Operação
+            </li>
+        </a>
+        <a routerLink="consultas-internas/{{idProposta}}" class="white-text" [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">closed_caption</i><br />Internas
+            </li>
+        </a>
+        <a routerLink="consultas-externas/{{idProposta}}" class="white-text" [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">account_balance</i><br />Externas
+            </li>
+        </a>
+        <a routerLink="contato/{{idProposta}}" class="white-text" [routerLinkActive]="['active']">
+            <li>
+                <i class="material-icons icon-xg">account_circle</i><br />Contatos
+            </li>
+        </a>
+    </ul>
+</aside>

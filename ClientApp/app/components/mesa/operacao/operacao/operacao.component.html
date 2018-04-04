@@ -1,0 +1,29 @@
+<div class="row padding-15">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <operacao-condicao [dados]="dados"></operacao-condicao>
+            </div>
+
+            <div class="col-sm-6">
+                <operacao-revenda [dados]="dados"></operacao-revenda>
+            </div>
+        </div>
+        <div class="row">
+            <!-- componente dados perfil operacao -->
+            <div class="col-sm-4">
+                <operacao-perfil [dados]="dados"></operacao-perfil>
+            </div>
+            <!-- componente valores operacao -->
+            <div class="col-sm-4">
+                <operacao-valor-veiculo [idProposta]="idProposta"></operacao-valor-veiculo>
+            </div>
+            <!-- componente valores operacao -->
+            <div class="col-sm-4">
+                <operacao-valor-entrada [idProposta]="idProposta"></operacao-valor-entrada>
+            </div>
+        </div>
+        <!-- componente fluxo parcelas -->
+        <operacao-fluxo-parcelas [fluxoParcelas]="fluxoParcelas"></operacao-fluxo-parcelas>
+    </div>
+</div>

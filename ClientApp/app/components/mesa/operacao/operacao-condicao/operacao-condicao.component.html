@@ -1,0 +1,32 @@
+<div class="well">
+    <div class="row">
+        <div class="col-sm-7">
+            <label class="label">Condição:</label><br />
+            <div class="label-text small">{{ dados?.condicao }}</div>
+        </div>
+        <div class="col-sm-5">
+            <label class="label">TAXI:</label><br />
+            <div class="label-text">{{ dados?.taxi == true ? "SIM" : "NÃO" }}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <label class="label">Produto:</label><br />
+            <div class="label-text small">{{ dados?.produto }}</div>
+        </div>
+        <div class="col-sm-5">
+            <label class="label">Fluxo:</label><br />
+            <div class="label-text small">{{ dados?.fluxo }}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <label class="label">Isenção Fiscal:</label><br />
+            <div class="label-text small">{{ dados?.isencaoFiscal == true ? "SIM" : "NÃO" }}</div>
+        </div>
+        <div class="col-sm-5">
+            <label class="label">Isenção Tar. Cad.:</label><br />
+            <div class="label-text small">{{ dados?.isencaoTC == true ? "SIM" : "NÃO"}}</div>
+        </div>
+    </div>
+</div>

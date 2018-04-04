@@ -1,0 +1,3 @@
+.menu-bar li{line-height: 15px; padding:10px 0 10px 0px; font-size:10px;}
+.menu-bar li:hover,
+.menu-bar a.active li{ background-color: #00596f; text-decoration: none; color:#fff;}

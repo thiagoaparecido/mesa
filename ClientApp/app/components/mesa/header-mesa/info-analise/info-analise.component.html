@@ -1,0 +1,33 @@
+<div>
+    <div class="col-sm-10">
+        <div class="row">
+            <div *ngIf="!readonly" class="col-sm-5 white-text small">Analisando</div>
+            <div *ngIf="!readonly" class="col-sm-7 red-text small bold right">{{ tempoGasto }}</div>
+            <div *ngIf="readonly" class="col-sm-12">&nbsp;</div>
+        </div>
+        <div *ngIf="!readonly">
+            <div class="divider-white"></div>
+        </div>
+        <div class="row">
+            <div *ngIf="!readonly" class="col-sm-5 white-text small">Tempo Total</div>
+            <div *ngIf="!readonly" class="col-sm-7 white-text small right">{{ infoAnalise?.tempoAnalise }}</div>
+            <div *ngIf="readonly" class="col-sm-12">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 white-text small">Usuário</div>
+            <div class="col-sm-7 white-text small right">{{ infoAnalise?.usuario }}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 white-text small">Alçada</div>
+            <div class="col-sm-7 white-text small right">{{ infoAnalise?.alcada }}</div>
+        </div>
+    </div>
+    <div class="col-sm-2 center">
+        <div *ngIf="!readonly">
+            <i (click)="pausePlay()" *ngIf="pause" class="material-icons icon-md white-text margin-top-15">pause</i>
+            <i (click)="pausePlay()" *ngIf="!pause" class="material-icons icon-md white-text margin-top-15">play_arrow</i>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

@@ -1,0 +1,35 @@
+<div class="row padding-15">
+    <div class="col-md-6">
+        <perfil-cliente [idProposta]="idProposta" (change)="perfilChange($event)" (listarConjuge)="listarConjuge($event)"></perfil-cliente>
+    </div>
+    <div class="col-md-6">
+        <perfil-profissional [idProposta]="idProposta"></perfil-profissional>
+    </div>
+    <div class="col-md-6" style="display:none;">
+        <div class="well height-250">
+            <div class="row divider">
+                <div class="col-md-12">
+                    <div class="title-perfil safra-cor-text bold">Bens e Propriedades</div>
+                </div>
+                <div class="clearfix margin-bottom-5"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"></div>
+        </div>
+    </div>
+    <div class="col-md-6 padding-15">
+        <perfil-dados-conjuge [idProposta]="idProposta" #conjuge></perfil-dados-conjuge>
+    </div>
+    <div class="col-md-6 padding-15">
+        <perfil-cliente-correspondencia [idProposta]="idProposta"></perfil-cliente-correspondencia>
+    </div>
+</div>
+<div class="row padding-15" *ngFor="let avalista of avalistas" [hidden]="avalistas == null">
+    <div class="col-md-6">
+        <perfil-dados-avalista [avalista]="avalista" [idProposta]="idProposta"></perfil-dados-avalista>
+    </div>
+    <div class="col-md-6">
+        <perfil-profissao-avalista [avalista]="avalista"></perfil-profissao-avalista>
+    </div>
+</div>

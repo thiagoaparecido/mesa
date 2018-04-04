@@ -1,0 +1,188 @@
+<div class="well perfil-card">
+    <div class="row divider">
+        <div class="col-md-12">
+            <div class="title-perfil safra-cor-text bold">Profissão do Cliente</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="margin-vertical-5">
+                <label class="label">Ocupação:</label>
+                <div class="label-text">
+                    <button [disabled]="!perfilProfissional.ocupacaoPassivelAlteracao || readonly" (click)="editarOcupacao()" class="btn btn-link"
+                        role="link">{{ perfilProfissional.ocupacao }}</button>
+                </div>
+            </div>
+            <div class="margin-vertical-5">
+                <label class="label">Empresa:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.empresa" placeholder="" min="{{ perfilObrigatorio.empresaObrigatorio == true ? 2 : 0 }}"
+                        empty="N/I" (onSave)="gravar(perfilProfissional)" (onError)="handleError($event, 'empresa')" name="empresa"></inline-editor>
+                </div>
+            </div>
+            <!-- <div class="margin-vertical-5">
+                <label class="label">Data de Admissão:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" data-toggle="datepicker" [ngModel]="perfilProfissional.dtAdmissao | date: 'dd/MM/yyyy'" empty="N/I"
+                        (onSave)="gravarDtAdmissao($event)" min="{{ perfilObrigatorio.dtAdmissaoObrigatorio == true ? 10 : 0 }}"
+                        max="10" (onError)="handleError($event, 'data de admissão')"></inline-editor> ({{ perfilProfissional.tempoAnos}} anos e {{ perfilProfissional.tempoMeses }} meses)
+                </div>
+            </div> -->
+            <div class="margin-vertical-5">
+                <label class="label">CNPJ:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.cnpjEmpresa" placeholder="" empty="N/I"
+                        (onSave)="gravar(perfilProfissional)" min="{{ perfilObrigatorio.cnpjObrigatorio == true ? 14 : 0 }}"
+                        max="18" (onError)="handleError($event, 'CNPJ da empresa')" name="cnpjEmpresa" id="cnpjEmpresa" pattern="^[0-9]{2}.[0-9]{3}.[0-9]{3}\[0-9]{4}-[0-9]{2}|[0-9]{14}$"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Cep:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.cep" placeholder="" empty="N/I" (onSave)="getEndereco($event)"
+                        min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 8 : 0 }}" max="9" (onError)="handleError($event, 'cep')"
+                        name="cep" id="cep" pattern="^[0-9]{5}-[0-9]{3}|^[0-9]{8}$"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Endereço:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.logradouro" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 2 : 0 }}" max="60" pattern="^[a-zA-Z0-9_ ]{1,60}$"
+                        (onError)="handleError($event, 'endereço')" name="logradouro" id="logradouro"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Número:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.numero" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 1 : 0 }}" max="5" pattern="^[0-9]{1,5}$" (onError)="handleError($event, 'número')"
+                        name="numero" id="numero" size="10"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Complemento:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.complemento" placeholder="" empty="N/I"
+                        (onSave)="gravar(perfilProfissional)" min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 2 : 0 }}"
+                        max="30" pattern="^[a-zA-Z0-9_ ]{1,30}$" (onError)="handleError($event, 'complemento')" name="complemento"
+                        id="complemento"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Bairro:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.bairro" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 2 : 0 }}" max="30" pattern="^[a-zA-Z0-9_ ]{1,60}$"
+                        (onError)="handleError($event, 'bairro')" name="bairro" id="bairro"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Cidade:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.cidade" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        name="cidade" min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 2 : 0 }}" max="30" (onError)="handleError($event, 'cidade')"
+                        id="cidade" size="10"></inline-editor>
+                    &nbsp;-&nbsp;
+                    <inline-editor type="select" [disabled]="readonly" empty="N/I" [(ngModel)]="perfilProfissional.idEstado" (onSave)="gravar(perfilProfissional)"
+                        [options]="listaEstados"></inline-editor>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="margin-vertical-5">
+                <label class="label">Profissão:</label>
+                <div class="label-text">
+                    <button (click)="editarOcupacao()" [disabled]="readonly" class="btn btn-link" role="link">{{ perfilProfissional.dsProfissao }}</button>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Cargo/Ramo Ativ:</label>
+                <div class="label-text">
+                    <inline-editor type="select" [disabled]="readonly" [(ngModel)]="perfilProfissional.idCargo" (onSave)="gravar(perfilProfissional)"
+                        [options]="listaCargos" value="valor" size="20"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Telefone:</label>
+                <div class="label-text">
+                    (
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.telefoneDdd" placeholder="" empty="N/I"
+                        (onSave)="gravar(perfilProfissional)" (onError)="handleError($event, 'ddd')" min="2" max="2" pattern="^[0-9]{2}$"
+                        pattern="^[0-9]{1,2}" name="ddd"></inline-editor>)
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.telefoneNumero" placeholder="" empty="N/I"
+                        (onSave)="gravar(perfilProfissional)" (onError)="handleError($event, 'telefone')" min="6" max="12" pattern="^[0-9]{8}$"
+                        name="telefone"></inline-editor>
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="perfilProfissional.telefoneRamal" placeholder="" empty="N/I"
+                        (onSave)="gravar(perfilProfissional)" (onError)="handleError($event, 'ramal')" min="0" max="12" pattern="^[0-9]{8}$"
+                        name="ramal"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Renda Mensal:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="strRenda" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        name="strRenda" min="1" max="14" (onError)="handleError($event, 'renda mensal')" id="strRenda"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Renda Adicional:</label>
+                <div class="label-text">
+                    <inline-editor type="text" [disabled]="readonly" [(ngModel)]="strRendaAdicional" placeholder="" empty="N/I" (onSave)="gravar(perfilProfissional)"
+                        min="0" max="14" (onError)="handleError($event, 'renda adicional')" name="strRendaAdicional" id="strRendaAdicional"></inline-editor>
+                </div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Fonte de Renda Adicional:</label>
+                <div class="label-text">TODO</div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Renda Total:</label>
+                <div class="label-text">{{ perfilProfissional?.rendaTotal | currency:'BRL':true }}</div>
+            </div>
+
+            <div class="margin-vertical-5">
+                <label class="label">Renda Presumida:</label>
+                <div class="label-text">TODO</div>
+            </div>
+          
+            <div class="margin-vertical-5">
+                <label class="label">Pessoa Política:</label>
+                <div class="label-text">
+                    <inline-editor type="select" [disabled]="readonly" empty="N/I" [(ngModel)]="perfilProfissional.pessoaPolitica" (onSave)="gravar(perfilProfissional)"
+                        [options]="listaPessoaPolitica" value="valor"></inline-editor>
+                </div>
+            </div>
+          
+            <div class="margin-vertical-5">
+                <label class="label">PPE Relacionado:</label>
+                <div class="label-text">
+                    <inline-editor type="select" [disabled]="readonly" empty="N/I" [(ngModel)]="perfilProfissional.pessoaRelacaoPolitica" (onSave)="gravar(perfilProfissional)"
+                        [options]="listaPessoaRelacaoPolitica" value="valor"></inline-editor>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<perfil-profissional-edicao [idProposta]="idProposta" *ngIf="exibirModalPerfilProfissional" (changeExibirModal)="changeModalProfissional($event)"
+    (atualizarPerfil)="atualizarPerfil($event)"></perfil-profissional-edicao>
+
+<cep-cidade *ngIf="exibirModalEnderecoCidade" [idProposta]="idProposta" [endereco]="cepCidade" [classe]="classe" [origem]="" (atualizarModal)="fecharModalEnderecoCidade($event)" ></cep-cidade>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

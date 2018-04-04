@@ -1,0 +1,34 @@
+<div class="well operacao-well">
+    <h4 class="safra-cor-text bold">Valor do Veículo</h4>
+    <div class="row">
+        <div class="col-sm-4"><i class="material-icons cyan-text font-30">drive_eta</i></div>
+        <div class="col-sm-8"><span class="font-20 cyan-text bold">{{ valores?.valorVeiculo | currency:'BRL':true }}</span></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"><span class="label">Mercado:</span></div>
+        <div class="col-sm-8">{{ valores?.valorMolicar | currency:'BRL':true }}</div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm-4"><span class="label">Cliente:</span></div>
+        <div class="col-sm-8">
+           <table>
+               <tr>
+                   <td><span>R$:</span></td>
+                   <td>
+                       {{ valores?.valorCliente | currency:'BRL':true }}
+                    </td>
+               </tr>
+           </table> 
+        </div>
+    </div>       -->
+    <div class="row">
+        <div class="col-sm-4"><span class="label">Financiado:</span></div>
+        <div class="col-sm-8">{{ valores?.valorCredito | currency:'BRL':true }}</div>
+    </div>  
+    <div class="row">
+        <div class="col-sm-4"><span class="label">  <!--Perda Esperada:--></span></div>
+        <div class="col-sm-8"><!--{{ valores?.valorPerdaEsperada | currency:'BRL':true }}--></div> 
+    </div>                                                                                                                                
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

@@ -1,0 +1,72 @@
+<form novalidate [formGroup]="myForm">
+
+    <!-- documentos obrigatorios -->
+    <div class="col-md-12 parecer-grid-docs-adicionais">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="safra-cor">
+                    <th>
+                        <label class="label white-text">DOCUMENTOS OBRIGATÓRIOS</label>
+                    </th>
+                    <th>
+                        <label class="label white-text">FORMALIZAÇÃO</label>
+                    </th>
+                    <th>
+                        <label class="label white-text">PAGAMENTO</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pendencia of pendenciasObrigatorio">
+                    <td>{{ pendencia.dsPendencia | uppercase }}</td>
+                    <td>
+                        <input type="checkbox" [checked]="pendenciasSelecionadas.indexOf(pendencia.idPendencia, 0) > -1" (change)="adicionalChange(pendencia.idPendencia, $event.target.checked)" data-toggle="toggle" />
+                    </td>
+                    <td>
+                        <input type="checkbox" (change)="adicionalChange(pendencia.idPendencia, $event.target.checked)" data-toggle="toggle" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- documentos adicionais -->
+    <div class="col-md-12 parecer-grid-docs-adicionais">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="safra-cor">
+                    <th>
+                        <label class="label white-text">DOCUMENTOS ADICIONAIS</label>
+                    </th>
+                    <th>
+                        <label class="label white-text">FORMALIZAÇÃO</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pendencia of pendenciasAdicional">
+                    <td>{{ pendencia.dsPendencia | uppercase }}</td>
+                    <td>
+                        <input type="checkbox" (change)="adicionalChange(pendencia.idPendencia, $event.target.checked)" data-toggle="toggle" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- acao -->
+    <div class="form-group">
+        <div class="col-md-10 parecer-area-obs">
+            <div class="label pull-right">Observações:</div>
+            <div class="clearfix divider"></div>
+            <textarea formControlName="observacao" maxlength="100" class="parecer-txt-obs"></textarea>
+        </div>
+
+        <div class="col-md-2 text-center align-middle">
+            <button class="btn btn-success btn-lg text-center parecer-btn-acao" [disabled]="!myForm.valid" (click)="aprovar()">APROVAR</button>
+        </div>
+    </div>
+
+</form>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

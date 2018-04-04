@@ -1,0 +1,37 @@
+<form novalidate [formGroup]="myForm">
+    <div class="parecer-grid-docs-adicionais">
+        <table class="table table-striped">
+            <thead>
+                <tr class="safra-cor">
+                    <th>
+                        <div class="label white-text">MOTIVOS DA RECUSA</div>
+                    </th>
+                    <th>
+                        <div class="label white-text">SELECIONADO</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let motivo of motivos">
+                    <td>{{ motivo.dsMotivo | uppercase }}</td>
+                    <td>
+                        <input type="checkbox" (change)="adicionalChange(motivo.idMotivo, $event.target.checked)" data-toggle="toggle" data-style="slow" data-size="mini">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix margin-top-20"></div>
+    <div class="row form-group">
+        <div class="col-md-10 parecer-area-obs">
+            <div class="label pull-right">Observações:</div>
+            <div class="clearfix divider"></div>
+            <textarea formControlName="observacao" class="parecer-txt-obs" maxlength="100" required></textarea>
+        </div>
+        <div class="col-md-2 text-center align-middle">
+            <button class="btn btn-danger btn-lg btn-lg text-center parecer-btn-acao" [disabled]="(!myForm.valid || motivosSelecionadas.length == 0)" (click)="recusar()">RECUSAR</button>
+        </div>
+    </div>
+</form>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

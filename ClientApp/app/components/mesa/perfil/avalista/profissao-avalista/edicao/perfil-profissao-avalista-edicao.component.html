@@ -1,0 +1,246 @@
+<div class="modal-common">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Perfil Profissional Avalista - Proposta {{ idProposta }}</h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="closeModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form novalidate [formGroup]="myForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Ocupação:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(ocupacao)">
+                                        <select class="form-control" formControlName="ocupacao" [ngModel]="avalistaLocal.idOcupacao" (ngModelChange)="changeProfissao($event)"
+                                            id="idOcupacao" [disabled]="!avalistaLocal.ocupacaoPassivelAlteracao" required>
+                                            <option *ngFor="let ocupacao of ocupacoes" [ngValue]="ocupacao.idNatOcupacao">{{ ocupacao.dsNatOcupacao }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Profissão:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(profissao)">
+                                        <select class="form-control" formControlName="profissao" [ngModel]="avalistaLocal.idProfissao" (ngModelChange)="changeCargo($event)"
+                                            required>
+                                            <option *ngFor="let profissao of profissoes" [ngValue]="profissao.idProfissao">{{ profissao.dsProfissao }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cargo/Ramo Ativ:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(cargo)">
+                                        <select class="form-control" formControlName="cargo" [ngModel]="avalistaLocal.profissaoIdCargo" required>
+                                            <option *ngFor="let cargo of cargos" [ngValue]="cargo.idCargo">{{ cargo.dsCargo }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" *ngIf="perfilObrigatorio.empresaObrigatorio">
+                            <div class="margin-vertical-5">
+                                <label class="label">Empresa:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(empresa)">
+                                        <input class="form-control" type="text" formControlName="empresa" [ngModel]="avalistaLocal.profissaoEmpresa" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6" *ngIf="perfilObrigatorio.cnpjObrigatorio">
+                            <div class="margin-vertical-5">
+                                <label class="label">CNPJ:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(cnpj)">
+                                        <input class="form-control" type="text" formControlName="cnpj" [ngModel]="avalistaLocal.cnpjEmpresa" min="{{ perfilObrigatorio.cnpjObrigatorio == true ? 14 : 0 }}"
+                                            max="18" name="avalistaCnpjEmpresa" id="avalistaCnpjEmpresa" pattern="^[0-9]{2}.[0-9]{3}.[0-9]{3}\[0-9]{4}-[0-9]{2}|[0-9]{14}$"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6" *ngIf="perfilObrigatorio.dtAdmissaoObrigatorio">
+                            <div class="margin-vertical-5">
+                                <label class="label">Data de Admissão/Constituição:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(dtAdmissao)">
+                                        <input class="form-control" type="text" data-toggle="datepicker" formControlName="dtAdmissao" [ngModel]="avalistaLocal.dtAdmissao"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="row" *ngIf="perfilObrigatorio.enderecoObrigatorio">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cep:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(cep)">
+                                        <input class="form-control" type="text" formControlName="cep" [ngModel]="avalistaLocal.profissaoCep" (change)="getEndereco()"
+                                            min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 8 : 0 }}" (onError)="handleError($event)"
+                                            name="cep" max="9" pattern="^[0-9]{5}-[0-9]{3}|^[0-9]{8}$" id="cep" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Logradouro:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(logradouro)">
+                                        <input class="form-control" type="text" formControlName="logradouro" [ngModel]="avalistaLocal.profissaoLogradouro" min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 2 : 0 }}"
+                                            (onError)="handleError($event)" name="profissaoLogradouro" max="60" pattern="^[a-zA-Z0-9_ ]{1,60}"
+                                            id="profissaoLogradouro" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="perfilObrigatorio.enderecoObrigatorio">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Número:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(numero)">
+                                        <input class="form-control" type="text" formControlName="numero" [ngModel]="avalistaLocal.profissaoNumero" min="{{ perfilObrigatorio.enderecoObrigatorio == true ? 1 : 0 }}"
+                                            (onError)="handleError($event)" name="profissaoNumero" max="5" pattern="^[0-9]{1,5}$"
+                                            id="profissaoNumero" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cidade:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(cidade)">
+                                        <input class="form-control" type="text" formControlName="cidade" [ngModel]="avalistaLocal.profissaoCidade" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="perfilObrigatorio.enderecoObrigatorio">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Complemento:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(complemento)">
+                                        <input class="form-control" type="text" formControlName="complemento" [ngModel]="avalistaLocal.profissaoComplemento" min="0" (onError)="handleError($event)"
+                                            name="profissaoComplemento" max="5" pattern="^[a-zA-Z0-9_ ]{1,60}" id="profissaoComplemento">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Bairro:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(bairro)">
+                                        <input class="form-control" type="text" formControlName="bairro" [ngModel]="avalistaLocal.profissaoBairro" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="perfilObrigatorio.enderecoObrigatorio">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Estado:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(idEstado)">
+                                        <select class="form-control" formControlName="idEstado" [ngModel]="avalistaLocal.profissaoIdEstado" id="idEstado" required>
+                                            <option *ngFor="let estado of estados" [ngValue]="estado.codigo">{{ estado.descricao }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">DDD:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(telefoneDdd)">
+                                        <input class="form-control" type="text" formControlName="telefoneDdd" [ngModel]="avalistaLocal.profissaoDdd" min="2" max="2"
+                                            pattern="^[0-9]{2}$" name="profissaoDdd" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="perfilObrigatorio.enderecoObrigatorio">
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Telefone:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(telefoneNumero)">
+                                        <input class="form-control" type="text" formControlName="telefoneNumero" [ngModel]="avalistaLocal.profissaoTelefone" min="6"
+                                            max="12" pattern="^[0-9]{1,12}$" name="profissaoTelefone" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="margin-vertical-5">
+                                <label class="label">Ramal:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(telefoneRamal)">
+                                        <input class="form-control" type="text" formControlName="telefoneRamal" [ngModel]="avalistaLocal.profissaoRamal" min="0"
+                                            max="12" pattern="^[0-9]{1,12}$" name="profissaoRamal">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Fechar</button>
+                <button type="button" [disabled]="!myForm.valid" (click)="gravarAvalistaProfissional()" class="btn btn-sm btn-safra small float-right">Gravar</button>
+            </div>
+            <!-- <div class="row">
+                <br>Form: {{ myForm.valid }}
+                <br>Ocupacao: {{ myForm.controls.ocupacao.valid }}
+                <br>Profissao: {{ myForm.controls.profissao.valid }}
+                <br>Cargo: {{ myForm.controls.cargo.valid }}
+                <br>Empresa: {{ myForm.controls.empresa.valid }}
+                <br>Perfil obrigatorio:<br>
+                <br>Empresa: {{ perfilObrigatorio.empresaObrigatorio }}
+                <br>Endereco: {{ this.perfilObrigatorio.enderecoObrigatorio }}
+                <br>Cep: {{ myForm.controls.cep.valid }}
+                <br>Telefone: {{ myForm.controls.telefoneNumero.valid }}
+                <br>Logradouro: {{ myForm.controls.logradouro.valid }}
+                <br>Numero: {{ myForm.controls.numero.valid }}
+                <br>Cidade: {{ myForm.controls.cidade.valid }}
+                <br>Complemento: {{ myForm.controls.complemento.valid }}
+                <br>Bairro: {{ myForm.controls.bairro.valid }}
+            </div>              -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<header-mesa [idProposta]="idProposta"></header-mesa>
+<proposta-cabecalho [idProposta]="idProposta"></proposta-cabecalho>
+<div class="row">
+    <div class="col-sm-1 no-padding sidebar">
+        <proposta-menu [idProposta]="idProposta"></proposta-menu>
+    </div>
+    <div class="col-sm-3 no-padding gray lighten-4 box-shadow-right">
+        <barra-fixa [idProposta]="idProposta"></barra-fixa>                
+    </div>
+    <div class="col-sm-8 no-padding">
+        <router-outlet></router-outlet>
+    </div>
+</div>

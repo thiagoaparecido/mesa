@@ -1,0 +1,29 @@
+<div class="container pop-over" *ngIf="exibirPopUpComparacao">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Selecione até 3 para comparar</h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="closeModal($event)" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" *ngFor="let item of historicos">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">{{ item.data | date: 'dd/MM/yy'}}</div>
+                        <div class="col-sm-2">{{ item.proposta }}</div>
+                        <div class="col-sm-7">{{ item.status }}</div>
+                        <div class="col-sm-1">
+                            <input [attr.data-target]="item.proposta" (change)="selecionar($event)" type="checkbox" name="cbCompararProposta" id="cbCompararProposta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button #comparar type="button" [disabled]="compararDisabled" (click)="compararPropostasSelecionadas($event)" class="btn btn-sm btn-safra small float-right"
+                    id="comparar" name="comparar">Comparar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal($event)">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

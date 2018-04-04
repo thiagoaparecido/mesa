@@ -1,0 +1,5 @@
+<div class="col-sm-12 gray-dark3 bold center underline margin-top-5">
+    <a (click)="exibirExtrato()" class="hand"><span class="gray-dark3-text text-center" data-toggle="tooltip" data-placement="left" title="Exibir extrato desta proposta">{{ propostaStatus?.status }}</span></a>
+</div>
+
+<cabecalho-extrato [idProposta]="propostaStatus?.idProposta" [exibirAcoes]="exibirAcoesExtrato" (fecharExtrato)="fecharExtrato($event)" *ngIf="modalExtrato"></cabecalho-extrato>

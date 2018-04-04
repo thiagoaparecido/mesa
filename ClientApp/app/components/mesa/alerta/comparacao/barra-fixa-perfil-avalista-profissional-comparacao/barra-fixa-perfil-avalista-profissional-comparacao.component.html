@@ -1,0 +1,39 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Perfil Profissional Avalista</div>
+    <hr class="divider" />
+</div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.ocupacaoAlterado}">{{ avalista?.ocupacao == null ? '&nbsp;' : avalista?.ocupacao}}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.profissaoEmpresaAlterado}">{{ avalista?.profissaoEmpresa == null ? '&nbsp;' : avalista?.profissaoEmpresa }}</span>        
+    </div>
+
+    <!-- <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.profissaoCargoAlterado}">{{avalista?.profissaoCargo}}</span>
+    </div> -->
+
+    <!-- <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right"> TODO// </span>
+    </div> -->
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.rendaAlterado}">{{ avalista?.renda == 0 ? '&nbsp;' : avalista?.renda | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.rendaAdicionalAlterado}">{{ avalista?.rendaAdicional == 0 ? '&nbsp;' : avalista?.rendaAdicional | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.rendaTotalAlterado}">{{ avalista?.rendaTotal == 0 ? '&nbsp;' : avalista?.rendaTotal | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">        
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.celularNumeroAlterado}">{{ avalista?.celularNumero == null ? '&nbsp;' : avalista?.celularNumero | telefoneMask}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.celularNumeroAlterado}" *ngIf="avalista?.celularDdd != null">({{ avalista?.celularDdd == null ? '&nbsp;' : avalista?.celularDdd }})</span>
+        <!-- <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.telefoneDddAlterado}" *ngIf="avalista?.telefoneDdd != null"> ({{ avalista?.profissaoDdd == null ? '&nbsp;' : avalista?.profissaoDdd}}) {{ avalista?.profissaoTelefone == null ? '&nbsp;' : avalista?.profissaoTelefone | telefoneMask}}</span> -->
+    </div>
+                                                                                                                                                                                                        

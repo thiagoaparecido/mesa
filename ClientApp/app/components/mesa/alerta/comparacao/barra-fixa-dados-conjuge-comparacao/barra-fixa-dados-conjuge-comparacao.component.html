@@ -1,0 +1,27 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Dados da Cônjuge</div>
+    <hr class="divider" />
+</div>
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': conjuge?.nomeAlterado}">{{conjuge?.nome}}&nbsp;</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': conjuge?.cpfAlterado}">{{ conjuge?.cpf == null ? '&nbsp;' : conjuge?.cpf | cpfMask }}
+            <span>{{conjuge?.idUfExpedidor}}&nbsp;</span>
+        </span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': conjuge?.idOcupacaoAlterado}">{{ conjuge?.ocupacao == null ? '&nbsp;' : conjuge?.ocupacao}}&nbsp;</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" *ngIf="conjuge?.rendaTotal > 0" [ngClass]="{'alterado': conjuge?.rendaTotalAlterado}">{{ conjuge?.rendaTotal == 0 ? '&nbsp;' : conjuge?.rendaTotal | currency: 'BRL':true}}&nbsp;</span>
+        <span class="label-text pull-right" *ngIf="conjuge?.rendaTotal == 0" [ngClass]="{'alterado': conjuge?.rendaTotalAlterado}">&nbsp;</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': conjuge?.conjugeAvalistaAlterado}" *ngIf="conjuge?.cpf != null && conjuge?.conjugeAvalista">SIM</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': conjuge?.conjugeAvalistaAlterado}" *ngIf="conjuge?.cpf != null && !conjuge?.conjugeAvalista">NÃO</span>&nbsp;
+    </div>

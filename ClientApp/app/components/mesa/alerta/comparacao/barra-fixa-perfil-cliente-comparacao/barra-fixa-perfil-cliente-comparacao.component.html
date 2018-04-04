@@ -1,0 +1,51 @@
+<div class="conteudo-principal-titulo">         
+    <div class="col-sm-8 left label-legend label-10 divider">{{ idProposta }} - {{statusProposta.ultimaAnalise | date: "dd/MM/yyyy"}} - {{statusProposta.ultimoUsuario | slice:0:7 }}</div>
+    <div class="col-sm-4 right label-legend label-10 divider">Perfil do Cliente</div>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.nomeAlterado}">{{ perfilCliente?.nome == null ? '&nbsp;' : perfilCliente?.nome }}</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilCliente?.dtNascimentoAlterado, 'bold': !perfilCliente?.dtNascimentoAlterado}">{{ perfilCliente?.dtNascimento == null ? '&nbsp;' : perfilCliente?.dtNascimento | date: "dd/MM/yyyy" }}
+        <span class="bold" [ngClass]="{'alterado': perfilCliente?.idadeAlterado}"> ({{ perfilCliente?.idade == null ? '&nbsp;' : perfilCliente?.idade | number:'1.0-1'}} anos</span>)</span>
+</div>
+
+<div class="col-sm-12  linha-comparar">
+    <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilCliente?.idEstadoCivilAlterado, 'bold': !perfilCliente?.idEstadoCivilAlterado}">{{ perfilCliente?.estadoCivil == null ? '&nbsp;' : perfilCliente?.estadoCivil }}(A)</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.cpfAlterado}">{{ perfilCliente?.cpf == null ? '&nbsp;' : perfilCliente?.cpf | cpfMask }}</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.cepAlterado}">{{ perfilCliente?.cep  == null ? '&nbsp;' : perfilCliente?.cep}}</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.logradouroAlterado}">{{ perfilCliente?.logradouro == null ? '&nbsp;' : perfilCliente?.logradouro }}</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <div class="col-sm-12">
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.complementoAlterado}">{{ perfilCliente?.complemento == null ? '&nbsp;' : perfilCliente?.complemento + ' - '}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.numeroAlterado}">{{ perfilCliente?.numero == null ? '&nbsp;' : perfilCliente?.numero}}</span>
+    </div>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.cidadeAlterado}">{{ perfilCliente?.cidade == null ? '&nbsp;' : perfilCliente?.cidade}}</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.telefoneRamalAlterado}">{{ perfilCliente?.telefoneRamal == null ? '&nbsp;' :  perfilCliente?.telefoneRamal | telefoneMask}}</span>
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.telefoneNumeroAlterado}">{{ perfilCliente?.telefoneNumero == null ? '&nbsp;' : perfilCliente?.telefoneNumero | telefoneMask}}</span>
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.telefoneDddAlterado}" *ngIf="perfilCliente?.telefoneDdd != null">({{ perfilCliente?.telefoneDdd == null ? '&nbsp;' : perfilCliente?.telefoneDdd }})</span>
+</div>
+
+<div class="col-sm-12 linha-comparar">
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.celularNumeroAlterado}">{{ perfilCliente?.celularNumero == null ? '&nbsp;' : perfilCliente?.celularNumero | celularMask}}</span>
+    <span class="label-text pull-right" [ngClass]="{'alterado': perfilCliente?.celularDddAlterado}" *ngIf="perfilCliente?.celularDdd != null">({{ perfilCliente?.celularDdd == null ? '&nbsp;' : perfilCliente?.celularDdd }})</span>
+</div>

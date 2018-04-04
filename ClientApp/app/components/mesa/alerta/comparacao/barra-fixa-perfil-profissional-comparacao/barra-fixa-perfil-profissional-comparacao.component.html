@@ -1,0 +1,39 @@
+<!--COMPONENTE PERFIL PROFISSIONAL -->
+<div class="conteudo-principal-titulo">
+    <div class="right label-legend label-10">Perfil do Profissional</div>
+    <hr class="divider" />
+</div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilProfissional?.ocupacaoAlterado}">{{ perfilProfissional?.ocupacao == null ? '&nbsp;' : perfilProfissional?.ocupacao }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilProfissional?.empresaAlterado}">{{ perfilProfissional?.empresa == null ? '&nbsp;' : perfilProfissional?.empresa }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.idProfissaoAlterado}">{{ perfilProfissional?.dsProfissao == null ? '&nbsp;' : perfilProfissional?.dsProfissao }}</span>
+    </div>
+
+    <!-- <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilProfissional?.tempoAnosAlterado || perfilProfissional?.tempoMesesAlterado }">{{ perfilProfissional?.tempoAnos == null ? '&nbsp;' : perfilProfissional?.tempoAnos }} ANOS E {{ perfilProfissional?.tempoMeses }} MESES</span>
+    </div> -->
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': perfilProfissional?.rendaAlterado}">{{ perfilProfissional?.renda == 0 ? '&nbsp;' : perfilProfissional?.renda | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.rendaAdicionalAlterado}">{{ perfilProfissional?.rendaAdicional == 0 ? '&nbsp;' : perfilProfissional?.rendaAdicional | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.rendaTotalAlterado}">{{ perfilProfissional?.rendaTotal == 0 ? '&nbsp;' : perfilProfissional?.rendaTotal | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.telefoneRamalAlterado}">{{  perfilProfissional?.telefoneRamal == null ? '&nbsp;' : perfilProfissional?.telefoneRamal | telefoneMask}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.telefoneNumeroAlterado}">{{ perfilProfissional?.telefoneNumero == null ? '&nbsp;' : perfilProfissional?.telefoneNumero | telefoneMask}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': perfilProfissional?.telefoneDddAlterado}" *ngIf="perfilProfissional?.telefoneDdd != null">({{ perfilProfissional?.telefoneDdd == null ? '&nbsp;' : perfilProfissional?.telefoneDdd }})</span>
+    </div>

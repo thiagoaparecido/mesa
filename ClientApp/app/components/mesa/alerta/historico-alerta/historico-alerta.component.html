@@ -1,0 +1,92 @@
+<div class="card-header bold text-center" *ngIf="historicos.length === 0 && processado === true">NÃO EXISTE HISTÓRICO PARA ESTÁ PROPOSTA</div>
+
+<div class="card card-safra-cor" *ngIf="historicos.length != 0">
+    <div class="card-header bold">
+        RESUMO HISTÓRICO
+    </div>
+
+    <div class="card-block card-sm">
+        <table class="table-striped table-hover xsmall resumo-historico-table">
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>PROPOSTA</th>
+                    <th>EST. CIVIL</th>
+                    <th>OCUPAÇÃO</th>
+                    <th>RENDA</th>
+                    <th>CONC.</th>
+                    <th>AVAL.</th>
+                    <th>VL. VENDA</th>
+                    <th>%ENTR.</th>
+                    <th>PRZ</th>
+                    <th>OPER.</th>
+                    <th>PESS.</th>
+                    <th>PROF.</th>
+                    <th>STATUS</th>
+                    <th></th>
+                    <th>COMPARAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of historicos">
+                    <td class="center">{{ item.data | date: 'dd/MM/yy'}}</td>
+                    <td class="center">
+                        <a class="pointer" (click)="visualizarProposta(item.proposta)" title="Visualizar proposta">{{ item.proposta }}</a>
+                    </td>
+                    <td class="center">{{ item.estadoCivil }}</td>
+                    <td class="center">{{ item.ocupacao }}</td>
+                    <td class="center">{{ item.renda | currency: 'BRL':true }}</td>
+                    <td class="center">{{ item.conceito }}</td>
+                    <td class="center">{{ item.avalista }}</td>
+                    <td class="center">{{ item.vlrVenda | currency: 'BRL':true }}</td>
+                    <td class="center">{{ item.pctEntrada | number: '1.0-0' }}%</td>
+                    <td class="center">{{ item.prazo }}</td>
+                    <td class="center">
+                        <span *ngIf="item.operacao">
+                            <i class="material-icons green-text bold icon-sm">check</i>
+                        </span>
+                        <span *ngIf="!item.operacao">
+                            <i class="material-icons red-text bold icon-sm" data-toggle="tooltip" data-placement="left" title='{{item.divergenciaOperacao}}'>clear</i>
+                        </span>
+                    </td>
+                    <td class="center">
+                        <span *ngIf="item.pessoas">
+                            <i class="material-icons green-text bold icon-sm">check</i>
+                        </span>
+                        <span *ngIf="!item.pessoas">
+                            <i class="material-icons red-text bold icon-sm" data-toggle="tooltip" data-placement="left" title='{{item.divergenciaPessoa}}'>clear</i>
+                        </span>
+                    </td>
+                    <td class="center">
+                        <span *ngIf="item.profissao">
+                            <i class="material-icons green-text bold icon-sm">check</i>
+                        </span>
+                        <span *ngIf="!item.profissao">
+                            <i class="material-icons red-text bold icon-sm" data-toggle="tooltip" data-placement="left" title='{{item.divergenciaProfissao}}'>clear</i>
+                        </span>
+                    </td>
+                    <td class="center">
+                        <a class="pointer" (click)="exibirExtrato(item.proposta)" title="Visualize o extrato desta proposta">{{ item.status }}</a>
+                    </td>
+                    <td class="center">
+                        <span *ngIf="item.dsRevisao">
+                            <i class="material-icons red-text bold icon-sm" data-toggle="tooltip" data-placement="left" title='{{item.dsRevisao}}'>info_outline</i>
+                        </span>
+                    </td>
+                    <td class="center">
+                        <input [attr.data-target]="item.proposta" (change)="selecionar($event)" type="checkbox" name="cbCompararProposta" id="cbCompararProposta"
+                            data-placement="left" title="Selecione até 3 propostas para comparar">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-muted">
+        <button #comparar type="button" [disabled]="compararDisabled" (click)="compararPropostasSelecionadas($event)" class="btn btn-sm btn-safra small float-right"
+            id="comparar" name="comparar">Comparar</button>
+    </div>
+</div>
+
+
+<cabecalho-extrato [idProposta]="propostaExtrato" [exibirAcoes]="exibirAcoesExtrato" (fecharExtrato)="fecharExtrato($event)" *ngIf="modalExtrato"></cabecalho-extrato>
+<spinner [loading]='loading' [fullScreen]='true'></spinner>

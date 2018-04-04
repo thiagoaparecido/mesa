@@ -1,0 +1,118 @@
+<div class="clearfix margin-top-15"></div>
+<div class="card card-safra-cor">
+    <div class="card-header bold">
+        TELEFONE E ALERTAS INTERNOS
+    </div>
+    <div class="card-block card-sm">
+        <div class="row">
+            <div class="col-5 scroll">
+                <div class="row margin-bottom-5">
+                    <div class="col-7 small center">
+                        Exibindo 16 registros de telefone
+                    </div>
+                    <div class="col-4 small center">
+                        Confirmado
+                    </div>                                                
+                </div>
+                <!-- LOOPING DOS REGISTROS ENCONTRADOS -->
+                <div class="row">
+                    <div class="col-1 center">
+                        <i class="material-icons font-30 safra-cor-text margin-horizontal-5">phone</i>
+                    </div>
+                    <div class="col-6">
+                        <div class="label small">Telefone Residencial</div>
+                        <div class="label-text">(11) 5050-1010</div>
+                    </div>
+                    <div class="col-4 center">
+                        <!-- ABAIXO COMPONENTE DE SWITCH -->
+                        <label>
+                            <input type="checkbox" data-toggle="toggle" data-style="slow" data-size="mini">
+                        </label>                 
+                    </div>                                                                                                
+                </div>    
+                                
+                <div class="row">
+                    <div class="col-1 center">
+                        <i class="material-icons font-30 safra-cor-text margin-horizontal-5">phone</i>
+                    </div>
+                    <div class="col-6">
+                        <div class="label small">Telefone Celular</div>
+                        <div class="label-text">(11) 95485-8134</div>
+                    </div>
+                    <div class="col-4 center">
+                        <!-- ABAIXO COMPONENTE DE SWITCH -->
+                        <label>
+                            <input type="checkbox" data-toggle="toggle" data-style="slow"  data-size="mini">
+                        </label>                                              
+                    </div>                                                                                                
+                </div>   
+
+                <div class="row">
+                    <div class="col-1 center">
+                        <i class="material-icons font-30 safra-cor-text margin-horizontal-5">phone</i>
+                    </div>
+                    <div class="col-6">
+                        <div class="label small">Telefone Comercial</div>
+                        <div class="label-text">(11) 3175-9075</div>
+                    </div>
+                    <div class="col-4 center">
+                        <!-- ABAIXO COMPONENTE DE SWITCH -->
+                        <label>
+                            <input type="checkbox" data-toggle="toggle" data-style="slow"  data-size="mini">
+                        </label>                                                 
+                    </div>                                                                                                
+                </div>      
+                
+                <div class="row red-light">
+                    <div class="col-1">
+                        <i class="material-icons font-30 red-text margin-horizontal-5">phone</i>
+                    </div>
+                    <div class="col-6">
+                        <div class="label xsmall">Telefone Vinculado no CPF</div>
+                        <div class="label-text">(11) 3175-9075</div>
+                    </div>
+                    <div class="col-4 center">
+                        <!-- ABAIXO COMPONENTE DE SWITCH -->
+                        <label>
+                            <input type="checkbox" data-toggle="toggle" data-style="slow"  data-size="mini">
+                        </label>
+                    </div>                                                                                                
+                </div>                                                 
+            </div>
+
+            <!-- COMPONENTE DE LOOPING PARA LISTAR OS PARECERES DO USUARIO E COMPARAR PROPOSTA DO ALERTA -->
+            <div class="col-7">
+
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col-3 center">
+                        <span class="small margin-horizontal-5">Esclarecido</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <span class="small">Telefone residencial consta em outro CPF</span>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-7">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm gray" id="parecerAlerta" aria-describedby="parecer" placeholder="parecer" data-id="">
+                        </div>
+                    </div>
+                    <div class="col-2 center">
+                        <button type="button" (click)="exibirComparar($event)" [hidden]="!exibirBtnComparar" class="btn btn-sm btn-safra small float-right">Comparar</button>
+                    </div>
+                    <div class="col-3 center">
+                        <!-- ABAIXO COMPONENTE DE SWITCH -->
+                        <label>
+                            <input type="checkbox" data-toggle="toggle" data-style="slow"  data-size="mini">
+                        </label>
+                    </div>          
+                </div>                                 
+            </div>  
+
+        </div>
+    </div>
+</div>                            

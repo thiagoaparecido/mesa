@@ -1,0 +1,49 @@
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Perfil do Avalista</div>
+    <hr class="divider" />
+</div>
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.nomeAlterado}">{{avalista?.nome}}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.dataNascimentoAlterado}">{{ avalista?.dataNascimento == null ? '&nbsp;' : avalista?.dataNascimento | date: 'dd/MM/yyyy' }} (
+            <span>{{ avalista?.idade == 0 ? '&nbsp;' : avalista?.idade | number:'1.0-1'}} anos</span>)</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.estadoCivilAlterado}">{{ avalista?.estadoCivil == null ? '&nbsp;' : avalista?.estadoCivil}}(A)</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.cpfAlterado}">{{ avalista?.cpf == null ? '&nbsp;' : avalista?.cpf | cpfMask }} </span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.cepAlterado}">{{ avalista?.cep == null ? '&nbsp;' : avalista?.cep | cepMask}}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.logradouroAlterado}">{{avalista?.logradouro == null ? '&nbsp;' : avalista?.logradouro}}</span>
+    </div>
+
+    <div class="col-sm-6">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.numeroAlterado}">{{ avalista?.numero == null ? '&nbsp;' : avalista?.numero}}</span>
+    </div>
+    <div class="col-sm-6">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.complementoAlterado}">{{ avalista?.complemento == null ? '&nbsp;' : avalista?.complemento}}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.cidadeAlterado}">{{avalista?.cidade == null ? '&nbsp;' : avalista?.cidade}}</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.telefoneNumeroAlterado}">{{ avalista?.telefoneNumero == null ? '&nbsp;' : avalista?.telefoneNumero | telefoneMask}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.telefoneDddAlterado}" *ngIf="avalista?.telefoneDdd != null">({{ avalista?.telefoneDdd == null ? '&nbsp;' : avalista?.telefoneDdd }})</span>
+    </div>
+
+    <div class="col-sm-12 line-heigth20 gray">
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.celularNumeroAlterado}">{{ avalista?.celularNumero == null ? '&nbsp;' : avalista?.celularNumero | telefoneMask}}</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': avalista?.celularNumeroAlterado}" *ngIf="avalista?.celularDdd != null">({{ avalista?.celularDdd == null ? '&nbsp;' : avalista?.celularDdd }})</span>
+    </div>

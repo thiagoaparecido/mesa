@@ -1,0 +1,19 @@
+<div *ngIf="!exibirComparacao">
+    <div class="row padding-15">
+        <div class="col-sm-12">
+            <div class="clearfix margin-top-15"></div>
+            <historico-alerta [idProposta]="idProposta" [propostasAComparar]="propostasAComparar" (change)="compararChange($event)"></historico-alerta>
+            <telefone-alerta [idProposta]="idProposta" [exibirPopUpComparacao]="exibirPopUpComparacao" (changeExibicao)="telefoneAlertaChange($event)"></telefone-alerta>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="exibirComparacao">
+    <barra-fixa-comparacao [idProposta]="idProposta" [propostas]="propostas" (fecharComparacao)="fecharComparacao($event)"></barra-fixa-comparacao>
+</div>
+
+<alertas-externos *ngIf="!exibirComparacao" [idProposta]="idProposta"></alertas-externos>
+
+<comparar-pop-over *ngIf="exibirPopUpComparacao" [idProposta]="idProposta" [propostasAComparar]="propostasAComparar" [exibirPopUpComparacao]="exibirPopUpComparacao"
+    (changeExibirComparacao)="changePopUpComparacao($event)" (changeProposta)="compararChange($event)"></comparar-pop-over>
+

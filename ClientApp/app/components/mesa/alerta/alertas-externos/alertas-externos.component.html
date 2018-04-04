@@ -1,0 +1,39 @@
+<div class="col-md-12">
+    <div class="card card-safra-cor">
+        <div class="card-header bold red-light  white-text">
+            ALERTAS EXTERNOS
+        </div>
+        <div class="card-block card-lg">
+            <div class="col-md-4 padding-5" *ngFor="let alerta of alertas">
+                <div class="card card-shadow padding-15 min-height-200 border-radius-10">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span class="info-color">
+                                <i class="material-icons">info</i>
+                            </span>
+                        </div>
+                        <div class="col-md-8">
+                            <span class="capitalize text-alert-blue">{{ alerta.titulo | lowercase }}</span>
+                        </div>
+                        <div class="col-md-1">
+                            <label>
+                                <input type="checkbox" data-toggle="toggle" data-style="slow" data-size="mini" (change)="setResolucao($event.target.checked,alerta)" title="Esclarecido">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-11 padding-10">
+                            <span *ngFor="let aviso of alerta.avisos">
+                                <span class="capitalize text-alert-blue">{{ aviso.descricao | lowercase }}: </span>
+                                <span class="capitalize text-alert">{{ aviso.valor | lowercase }} {{ aviso?.valorComplementar }}</span>
+                                <br />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

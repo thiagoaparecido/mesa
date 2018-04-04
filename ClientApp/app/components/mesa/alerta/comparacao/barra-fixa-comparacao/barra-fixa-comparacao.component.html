@@ -1,0 +1,19 @@
+<section>
+    <div class="col-sm-12 no-padding comparacao">
+        <spinner [loading]='loading'></spinner>
+        <div *ngFor="let item of perfis">
+            <div class="col-sm-4 no-padding divider-vertical">
+                <div class="lighten-4">                    
+                    <barra-fixa-conceito-comparacao [idProposta]="idProposta"></barra-fixa-conceito-comparacao>
+                    <barra-fixa-status-comparacao [propostaStatus]='item.propostaStatus'></barra-fixa-status-comparacao>
+                    <barra-fixa-perfil-cliente-comparacao [perfilCliente]='item.perfilCliente' [idProposta]="item.idProposta" [statusProposta]="item.propostaStatus"></barra-fixa-perfil-cliente-comparacao>
+                    <barra-fixa-perfil-profissional-comparacao [perfilProfissional]='item.perfilProfissional'></barra-fixa-perfil-profissional-comparacao>
+                    <barra-fixa-dados-operacao-comparacao [operacao]='item.operacao'></barra-fixa-dados-operacao-comparacao>
+                    <barra-fixa-dados-conjuge-comparacao [conjuge]='item.conjuge'></barra-fixa-dados-conjuge-comparacao>
+                    <barra-fixa-avalista-comparacao [hidden]="item.avalista == null" [avalistas]='item.avalista'></barra-fixa-avalista-comparacao>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div (click)="closeComparacao()" class="circle-label-sm red white-text margin-top-5 close comparar-fechar"><i class="material-icons">close</i></div>    
+</section>

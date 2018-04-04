@@ -1,0 +1,67 @@
+<!--COMPONENTE DADOS OPERACAO COMPARAR -->
+<div class="conteudo-principal-titulo">
+    <div class="text-right label-legend label-10">Dados da Operação</div>
+    <hr class="divider" />
+</div>
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': operacao?.tipoOperacaoAlterado}">{{operacao?.tipoOperacao == null ? '&nbsp;' : operacao?.tipoOperacao }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.filaAlterado}">{{operacao?.fila == null ? '&nbsp;' : operacao?.fila }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.revendaAlterado}">{{operacao?.revenda == null ? '&nbsp;' : operacao?.revenda }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.zeroAlterado}" *ngIf="operacao?.zero">NOVO</span>
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.zeroAlterado}" *ngIf="!operacao?.zero">USADO</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.anoFabricacaoAlterado}">{{operacao?.anoFabricacao == null ? '&nbsp;' : operacao?.anoFabricacao}}/
+            <span class="label-text" [ngClass]="{'alterado': operacao?.anoModeloAlterado}">{{operacao?.anoModelo}}</span>
+        </span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': operacao?.marcaAlterado}">{{operacao?.marca == null ? '&nbsp;' : operacao?.marca}}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': operacao?.modeloAlterado}">{{operacao?.modelo == null ? '&nbsp;' : operacao?.modelo }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.versaoAlterado}">{{operacao?.modelo == null ? '&nbsp;' : operacao?.modelo}}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text bold pull-right" [ngClass]="{'alterado': operacao?.valorMercadoAlterado}">{{ operacao?.valorMercado == 0 ? '&nbsp;' : operacao?.valorMercado | currency:'BRL':true }}</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right bold" [ngClass]="{'alterado': operacao?.valorVeiculoAlterado}">{{ operacao?.valorVeiculo == 0 ? '&nbsp;' : operacao?.valorVeiculo | currency: 'BRL':true}} (
+            <span class="bold">{{ operacao?.percentualVeiculo == 0 ? '&nbsp;' : operacao?.percentualVeiculo | number:'1.0-1'}}%</span>)</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right bold" [ngClass]="{'alterado': operacao?.valorEntradaAlterado}">{{ operacao?.valorEntrada == 0 ? '&nbsp;' : operacao?.valorEntrada | currency:'BRL':true }} (
+            <span class="bold" [ngClass]="{'alterado': operacao?.percentualEntradaAlterado}">{{operacao?.percentualEntrada | number:'1.0-1'}}%</span>)</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right bold" [ngClass]="{'alterado': operacao?.valorFinanciadoAlterado}">{{ operacao?.valorFinanciado | currency: 'BRL':true}} (
+            <span class="bold" [ngClass]="{'alterado': operacao?.percentualFinanciadoAlterado}">{{operacao?.percentualFinanciado | number:'1.0-1'}}%</span>)</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right bold" [ngClass]="{'alterado': operacao?.valorParcelaAlterado}">{{operacao?.valorParcela | currency:'BRL':true}} (
+            <span class="bold" [ngClass]="{'alterado': operacao?.percentualParcelaAlterado}">{{operacao?.percentualParcela | number:'1.0-1'}}%</span>)</span>
+    </div>
+
+    <div class="col-12 linha-comparar">
+        <span class="label-text pull-right" [ngClass]="{'alterado': operacao?.parcelasAlterado}">{{ operacao?.parcelas == 0 ? '&nbsp;' : operacao?.parcelas }}</span>
+    </div>

@@ -1,0 +1,5 @@
+<div>
+    <span>Observações</span><br>
+    <div class="small font-10 observacao-proposta">{{ capturaObservacao?.observacao }}</div>
+</div>
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

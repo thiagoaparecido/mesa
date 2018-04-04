@@ -1,0 +1,42 @@
+<spinner [loading]='loading'></spinner>
+<span [hidden]='isHide'>
+ 
+  <div (click)="listar();modal.show()" class="text-center">VER IMAGEM</div>
+ </span>
+<app-modal #modal>
+    <div class="app-modal-header">
+      <h3>Documentos - Proposta {{ idProposta }}</h3>
+      <table>
+        <tr style="text-align:right" >
+           <td><i onclick="printDiv('imagemBig')" style="cursor:pointer" class="material-icons">print</i></td>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+           <td><i id="rotate" class="material-icons" style="display:block;cursor:pointer">3d_rotation</i></td>
+        </tr>
+      </table>
+      
+    </div>
+
+    <div class="app-modal-body print">
+
+        <canvas id="canvas"></canvas>
+        <table>
+          <tr>
+              <td><i (click)="preview()" style="cursor:pointer" class="material-icons">navigate_before</i></td>
+              <td id="imagemBig"><img id="image" src="{{ strImagem }}" /></td>
+              <td><i (click)="next()" style="cursor:pointer" class="material-icons">navigate_next</i></td>
+          </tr>
+        </table>
+        
+
+         <!--<ngx-gallery [id]="image" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
+    </div> 
+
+  
+    
+    <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="modal.hide()">Fechar</button>
+      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+    </div>
+</app-modal>
+
+

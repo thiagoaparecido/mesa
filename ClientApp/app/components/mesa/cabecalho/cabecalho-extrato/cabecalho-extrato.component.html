@@ -1,0 +1,132 @@
+<div class="modal-common" [ngClass]="getPosition()">
+    <div class="modal-dialog extrato padding-15" role="document">
+        <div class="row">
+            <div class="col-10">
+                <div class="title-perfil safra-cor-text bold">EXTRATO DAS ALTERAÇÕES</div>
+            </div>
+            <div class="col-2">
+                <div class="circle-label-sm red white-text margin-top-5 close" (click)="fecharModal(true)">
+                    <i class="material-icons">close</i>
+                </div>
+            </div>
+        </div>
+
+        <spinner [loading]='loading' [fullScreen]='false'></spinner>
+        <div class="grupo-historico-proposta" *ngIf="historicos?.length == 0">
+            <div class="card-shadow padding-15 margin-top-15 white extrato-card-centralizado">
+                <div class="row">
+                    <h4 class="margin-horizontal-10">Sem informações</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="grupo-historico-proposta" *ngIf="historicos?.length > 0">
+            <div *ngFor="let historico of historicos" class="card-shadow padding-15 margin-top-15 white" [ngClass]="getClassCard(historico)">
+                <div class="row">
+                    <div class="col text-right label-text">{{ historico?.dtAlteracao | date: 'dd/MM/yyyy HH:mm:ss' }} - {{ historico?.usuario }}</div>
+                </div>
+                <div class="row">
+                    <div class="col text-left label-text bold">{{ historico?.campo }}</div>
+                </div>
+                <br>
+                <!-- motivos -->
+                <div *ngIf="historico?.motivos?.length > 0">
+                    <div class="row" *ngFor="let motivo of historico?.motivos; let i = index">
+                        <div class="col">
+                            <span class="label-text bold">{{ historico?.parecerDescricao }} {{i + 1}}:</span> {{ motivo | lowercase }}</div>
+                    </div>
+                </div>
+                <!-- alteracoes de -> para -->
+                <div *ngIf="historico?.anterior != null">
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="extrato-block-red">&nbsp;</span> De:
+                            <span class="label-text">{{ historico?.anterior }}</span>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="historico?.anterior != null">
+                        <div class="col text-left label-text">
+                            <span class="extrato-block-blue">&nbsp;</span> Para:
+                            <span class="label-text">{{ historico?.novo }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- agendamento -->
+                <div *ngIf="historico?.tempoAdicionado > 0">
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="extrato-block-red">&nbsp;</span>
+                            <span class="label-text bold">Hor&aacute;rio Anterior:</span>
+                            <span class="label-text">{{ historico?.dtInclusao | date: 'HH:mm' }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="extrato-block-blue">&nbsp;</span>
+                            <span class="label-text bold">Tempo Adicional:</span>
+                            <span class="label-text">{{ historico?.tempoAdicionado }} minutos</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="extrato-block-green">&nbsp;</span>
+                            <span class="label-text bold">Hor&aacute;rio Agendado:</span>
+                            <span class="label-text">{{ historico?.dtAgendamento | date: 'HH:mm' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- pareceres comercial e interno -->
+                <div *ngIf="historico?.parecerComercial != null">
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="label-text bold">Parecer Comercial:</span>
+                            <span class="label-text">{{ historico?.parecerComercial }}</span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div *ngIf="historico?.parecerInterno != null">
+                    <div class="row">
+                        <div class="col text-left label-text">
+                            <span class="label-text bold">Parecer Interno:</span>
+                            <span class="label-text">{{ historico?.parecerInterno }}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- avisos (alertas externos) -->
+                <div *ngIf="historico?.alerta != null" class="row">
+                    <div class="col text-left label-text bold">{{ historico.alerta }}</div>
+                </div>
+                <div *ngIf="historico?.avisos" class="padding-5">
+                    <div *ngFor="let aviso of historico.avisos" class="row">
+                        <div class="col text-left label-text">{{ aviso.descricao }}:
+                            <span class="col label-text">{{ aviso.valor }} {{ aviso.valorComplementar }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-parecer-proposta">
+            <!-- {{ historico.edicaoAtual }} -->
+            <div class="row margin-top-15" *ngIf="!readonly && exibirAcoes">
+                <div class="col-md-12 text-center">
+                    Observações:
+                    <br>
+                    <small>Observações internas para possíveis detalhamentos da mesa de Crédito</small>
+                    <br />
+                    <textarea maxlength="4000" style="width:90%; height:60px;" [(ngModel)]="observacao"></textarea>
+                </div>
+            </div>
+            <div class="row margin-top-10" *ngIf="exibirAcoes">
+                <div class="col-12 text-center">
+                    <button class="btn btn-warning btn-lg" (click)="recalcularProposta()" *ngIf="recalcular && !readonly">Recalcular</button>
+                    <button class="btn btn-success btn-lg" (click)="parecerProposta()" *ngIf="!recalcular && !readonly">Parecer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

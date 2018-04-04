@@ -1,0 +1,22 @@
+<div class="col-sm-4">
+    <div class="small divider margin-top-5 font-10">ALERTAS</div>
+    <div class="circle-label-sm red white-text margin-top-5">
+        {{ alertas?.alerta }}
+    </div>				
+</div>
+<div class="col-sm-4">
+    <div class="small divider margin-top-5 font-10">RESOLVIDO</div>                    
+    <div class="circle-label-sm green white-text margin-top-5">
+        {{ alertas?.resolvido }}
+    </div>				
+</div>
+<div class="col-sm-4">
+    <div class="small divider margin-top-5 font-10">RESTANTE</div>
+    <div class="circle-label-sm yellow white-text margin-top-5">
+        {{ alertas?.restante }}
+    </div>				
+</div>
+<div class="col-sm-12">
+   <!-- <div class="small margin-top-5 center font-10">VER IMAGENS</div> -->
+     <visualizar-imagem [idProposta]="idProposta" [imageWidth]="imageWidth" [imageHeight]="imageHeight"></visualizar-imagem>
+</div>                

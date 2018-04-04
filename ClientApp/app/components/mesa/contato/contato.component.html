@@ -1,0 +1,78 @@
+<div class="row padding-15">
+    <div class="col">
+        <div class="card card-safra-cor margin-top-20">
+            <div class="card-header bold">
+                REVENDA
+            </div>
+            
+            <div class="card-block gray">
+                <div class="row">
+                    <div class="col-6"><span class="label">NOME ABREVIADO</span></div>
+                    <div class="col-2"><span class="label">CÓDIGO</span></div>
+                    <div class="col-4"><span class="label">TELEFONE</span></div>            
+                </div>
+            </div>
+
+            <div class="card-block gray">        
+                <div class="row">
+                    <div class="col-6"><span class="label-text">{{ contato?.revendaNomeAbreviado }}</span></div>
+                    <div class="col-2"><span class="label-text">{{ contato?.revendaCodigo }}</span></div>
+                    <div class="col-4"><span *ngIf="contato?.revendaTelefoneDdd != null" class="label-text">({{ contato?.revendaTelefoneDdd }})</span><span class="label-text">{{contato?.revendaTelefoneNumero}} </span></div>            
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-safra-cor margin-top-20">
+            <div class="card-header bold">
+                CONTATOS COMERCIAIS
+            </div>
+            
+            <div class="card-block gray">
+                <div class="row">
+                    <div class="col-6"><span class="label">NOME</span></div>
+                    <div class="col-2"><span class="label">CÓDIGO</span></div>
+                    <div class="col-2"><span class="label">TELEFONE CONTATO</span></div>            
+                    <div class="col-2"><span class="label">TIPO</span></div>            
+                </div>
+            </div>
+
+            <div class="card-block gray">        
+                <div class="row">
+                    <div class="col-6"><span class="label-text">{{ contato?.operadorNome }}</span></div>
+                    <div class="col-2"><span class="label-text">{{ contato?.operadorCodigo }}</span></div>
+                    <div class="col-2"><span *ngIf="contato?.operadorTelefoneDdd > 0" class="label-text">({{ contato?.operadorTelefoneDdd }}) {{contato?.operadorTelefoneNumero}} </span></div>            
+                    <div class="col-2"><span class="label-text">{{ contato?.operadorFuncao }}</span></div>
+                </div>
+            </div>
+
+            <div class="card-block gray">        
+                <div class="row">
+                    <div class="col-6"><span class="label-text">{{ contato?.gerenteNome }}</span></div>
+                    <div class="col-2"><span class="label-text">{{ contato?.gerenteCodigo }}</span></div>
+                    <div class="col-2"><span *ngIf="contato?.gerenteTelefoneDdd > 0" class="label-text">({{ contato?.gerenteTelefoneDdd }}) {{contato?.gerenteTelefoneNumero}} </span></div>            
+                    <div class="col-2"><span class="label-text">{{ contato?.gerenteFuncao }}</span></div>
+                </div>
+            </div>
+
+            <div class="card-block gray">        
+                <div class="row">
+                    <div class="col-6"><span class="label-text">{{ contato?.regionalNome }}</span></div>
+                    <div class="col-2"><span class="label-text">{{ contato?.regionalCodigo }}</span></div>
+                    <div class="col-2"><span *ngIf="contato?.regionalTelefoneDdd > 0" class="label-text">({{ contato?.regionalTelefoneDdd }}) {{contato?.regionalTelefoneNumero}} </span></div>            
+                    <div class="col-2"><span class="label-text">{{ contato?.regionalFuncao }}</span></div>
+                </div>
+            </div>
+
+            <div class="card-block gray">        
+                <div class="row">
+                    <div class="col-6"><span class="label-text">{{ contato?.diretorNome }}</span></div>
+                    <div class="col-2"><span class="label-text">{{ contato?.diretorCodigo }}</span></div>
+                    <div class="col-2"><span *ngIf="contato?.diretorTelefoneDdd > 0" class="label-text">({{ contato?.diretorTelefoneDdd }}) {{contato?.diretorTelefoneNumero}} </span></div>            
+                    <div class="col-2"><span class="label-text">{{ contato?.diretorFuncao }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

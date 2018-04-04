@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-6 bold h6 margin-vertical-5">Status da Proposta</div>
+    <div class="col-sm-6 h6 margin-vertical-5">{{ status?.status }}</div>
+</div>
+<div class="row">
+    <div class="col-sm-6 bold h6 margin-vertical-5">Último Usuário</div>
+    <div class="col-sm-6 h6 margin-vertical-5">{{ status?.ultimoUsuario }}</div>
+</div>
+<div class="row">
+    <div class="col-sm-6 bold h6 margin-vertical-5">Última Análise</div>
+    <div class="col-sm-6 h6 margin-vertical-5">{{ status?.ultimaAnalise | date: 'dd/MM/yyyy'}} - {{ status?.ultimaAnalise | date: 'HH:mm' }}</div>
+</div>

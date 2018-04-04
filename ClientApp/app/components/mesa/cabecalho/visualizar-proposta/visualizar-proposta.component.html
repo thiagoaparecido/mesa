@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-sm-10 form-group bold">
+        <div class="row margin-top-10">
+            <div class="col-md-8">
+                <div class="row" *ngIf="!readonly">
+                    <div class="col-md-6">visualizar proposta</div>
+                    <div class="col-md-6">
+                        <input #proposta id="proposta" class="form-control form-control-sm" maxlength="5" minlength="5" (keyup.enter)="visualizarProposta(proposta.value)"
+                            title="Digite o código de uma proposta e tecle ENTER para visualizar" />
+                    </div>
+                </div>
+                <div class="row" *ngIf="!readonly">
+                    <div class="col-md-12">
+                        <a (click)="visualizarFila()">
+                            <i class="material-icons margin-lateral-5 icon-sm">format_list_bulleted</i>
+                        </a> visualizar fila
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <captura-observacoes [idProposta]="idProposta"></captura-observacoes>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
+</div>

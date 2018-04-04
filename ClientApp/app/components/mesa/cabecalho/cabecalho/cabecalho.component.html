@@ -1,0 +1,24 @@
+<section>
+    <div class="row gray-dark">
+        <div class="col-sm-4 gray-dark2 white-text small">
+            <proposta-cabecalho-status [idProposta]="idProposta"></proposta-cabecalho-status>
+        </div>    
+        <div class="col-sm-4">
+            <visualizar-proposta [idProposta]="idProposta"></visualizar-proposta>
+        </div>
+        <div class="col-sm-3">
+            <proposta-cabecalho-alertas [idProposta]="idProposta"></proposta-cabecalho-alertas>
+        </div>
+        <div class="col-sm-1 center">
+            <div class="row">
+                <div class="col-sm-6"><a (click)="exibirExtrato()"><i class="material-icons icon-xg cyan-text margin-top-15" data-placement="left" title="Exibir extrato">view_headline</i></a></div>
+                <div class="col-sm-6 margin-top-25">
+                    <button class="btn btn-warning" *ngIf="readonly && !popup" (click)="voltarParaFila()" data-placement="left" title="Voltar para a Fila">Voltar</button>
+                    <button class="btn btn-warning" *ngIf="popup" (click)="fecharJanela()" title="Fechar esta janela">Fechar</button>
+                </div>                
+            </div>
+        </div>
+    </div>
+</section>
+
+<cabecalho-extrato [idProposta]="idProposta" [exibirAcoes]="exibirAcoesExtrato"  (fecharExtrato)="fecharExtrato($event)" *ngIf="modalExtrato"></cabecalho-extrato>

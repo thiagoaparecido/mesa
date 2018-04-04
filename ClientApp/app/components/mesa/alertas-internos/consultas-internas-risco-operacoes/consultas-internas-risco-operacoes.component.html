@@ -1,0 +1,35 @@
+<div class="card-header bold text-center" *ngIf="riscosOperacoes === null">NÃO EXISTE RISCO DE OPERAÇÕES PARA ESTÁ PROPOSTA</div>
+
+<div class="card card-shadow" *ngIf="riscosOperacoes != null">
+    <div class="card-header bold font-12">
+        CONSULTA DE RISCO DE OPERAÇÕES
+    </div>
+
+    <div class="card-block card-sm gray1 padding-10">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="center">IDENTIFICAÇÃO</th>
+                    <th class="center">EMPRESA</th>
+                    <th class="center">RATING</th>
+                    <th class="center">MODALIDADE</th>
+                    <th class="center">VLR INICIAL</th>
+                    <th class="center">RISCO ATUAL</th>
+                    <th class="center">RISCO VENCIDO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of riscosOperacoes">
+                    <td class="center">{{ item.identificacao | cpfMask}} (
+                        <span>{{item.tipoCliente}}</span>)</td>
+                    <td class="center">{{ item.empresa }}</td>
+                    <td class="center">{{ item.raiting }}</td>
+                    <td class="center">{{ item.modalidade }}</td>
+                    <td class="center">{{ item.valorInicial }}</td>
+                    <td class="center">{{ item.riscoAtual }}</td>
+                    <td class="center">{{ item.riscoVencido }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

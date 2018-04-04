@@ -1,0 +1,94 @@
+<div class="row padding-15">
+    <div class="col-sm-12">
+        <div class="clearfix margin-top-15"></div>
+        <ul class="nav nav-pills nav-justified" id="pills-tab-consultas-internas" role="tablist">
+            <li class="nav-item font-12 bold">
+                <a class="nav-link active" id="pills-ccl-tab" data-toggle="pill" href="#pills-ccl" role="tab" aria-controls="pills-ccl" aria-selected="true">CCL</a>
+            </li>
+            <li class="nav-item font-12 bold">
+                <a class="nav-link" id="pills-cccl-tab" data-toggle="pill" href="#pills-cccl" role="tab" aria-controls="pills-cccl" aria-selected="false">CCLR / RISCO</a>
+            </li>
+            <li class="nav-item font-12 bold">
+                <a class="nav-link" id="pills-contratos-tab" data-toggle="pill" href="#pills-contratos" role="tab" aria-controls="pills-contratos"
+                    aria-selected="false">CONTRATOS CDC E LEASING</a>
+            </li>
+            <li class="nav-item font-12 bold">
+                <a class="nav-link" id="pills-risco-tab" data-toggle="pill" href="#pills-risco" role="tab" aria-controls="pills-risco" aria-selected="false">RISCO SAFRA</a>
+            </li>
+        </ul>
+
+        <div class="clearfix margin-top-15"></div>
+        <div class="tab-content" id="pills-tabContent-consultas-internas">
+            <div class="tab-pane fade show active" id="pills-ccl" role="tabpanel" aria-labelledby="pills-ccl-tab">
+                <consultas-internas-ccl [idProposta]="idProposta"></consultas-internas-ccl>
+                <!-- <consultas-internas-resumo-cadastro-ccl></consultas-internas-resumo-cadastro-ccl> -->
+            </div>
+            <div class="tab-pane fade" id="pills-cccl" role="tabpanel" aria-labelledby="pills-cccl-tab">
+                <consultas-internas [idProposta]="idProposta"></consultas-internas>
+            </div>
+            <div class="tab-pane fade" id="pills-contratos" role="tabpanel" aria-labelledby="pills-contratos-tab">
+                <consultas-internas-consultas-contrato [idProposta]="idProposta"></consultas-internas-consultas-contrato>
+                <consultas-internas-consultas-contrato-total [idProposta]="idProposta"></consultas-internas-consultas-contrato-total>
+            </div>
+            <div class="tab-pane fade" id="pills-risco" role="tabpanel" aria-labelledby="pills-risco-tab">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="clearfix margin-top-15"></div>
+                        <ul class="nav nav-pills nav-justified" id="pills-tab-riscos" role="tablist">
+                            <li class="nav-item font-12 bold">
+                                <a class="nav-link active" id="pills-proponente-tab" data-toggle="pill" href="#pills-proponente" role="tab" aria-controls="pills-proponente"
+                                    aria-selected="true">PROPONENTE</a>
+                            </li>
+                            <li class="nav-item font-12 bold">
+                                <a class="nav-link" id="pills-conjuge-tab" data-toggle="pill" href="#pills-conjuge" role="tab" aria-controls="pills-conjuge"
+                                    aria-selected="false">CÔNJUGE</a>
+                            </li>
+                            <li class="nav-item font-12 bold">
+                                <a class="nav-link" id="pills-avalista-tab" data-toggle="pill" href="#pills-avalista" role="tab" aria-controls="pills-avalista"
+                                    aria-selected="false">AVALISTA</a>
+                            </li>
+                            <li class="nav-item font-12 bold">
+                                <a class="nav-link" id="pills-empresa-tab" data-toggle="pill" href="#pills-empresa" role="tab" aria-controls="pills-empresa"
+                                    aria-selected="false">EMPRESA</a>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix margin-top-15"></div>
+                        <div class="tab-content" id="pills-tabContent-riscos">
+                            <div class="tab-pane fade show active" id="pills-proponente" role="tabpanel" aria-labelledby="pills-proponente-tab">
+                                <consultas-internas-riscos-operacoes [idProposta]="idProposta"></consultas-internas-riscos-operacoes>
+                                <div class="clearfix margin-top-25"></div>
+                                <!-- <consultas-internas-posicao-investidor></consultas-internas-posicao-investidor> -->
+                                <div class="clearfix margin-top-25"></div>
+                                <consultas-internas-pocs-clientes [idProposta]="idProposta"></consultas-internas-pocs-clientes>
+                            </div>
+                            <div class="tab-pane fade" id="pills-conjuge" role="tabpanel" aria-labelledby="pills-conjuge-tab">
+                                    <consultas-internas-riscos-operacoes [idProposta]="idProposta"></consultas-internas-riscos-operacoes>
+                                    <div class="clearfix margin-top-25"></div>
+                                    <!-- <consultas-internas-posicao-investidor></consultas-internas-posicao-investidor> -->
+                                    <div class="clearfix margin-top-25"></div>
+                                    <consultas-internas-pocs-clientes [idProposta]="idProposta"></consultas-internas-pocs-clientes>
+                            </div>
+                            <div class="tab-pane fade" id="pills-avalista" role="tabpanel" aria-labelledby="pills-avalista-tab">
+                                    <consultas-internas-riscos-operacoes [idProposta]="idProposta"></consultas-internas-riscos-operacoes>
+                                    <div class="clearfix margin-top-25"></div>
+                                    <!-- <consultas-internas-posicao-investidor></consultas-internas-posicao-investidor> -->
+                                    <div class="clearfix margin-top-25"></div>
+                                    <consultas-internas-pocs-clientes [idProposta]="idProposta"></consultas-internas-pocs-clientes>
+                            </div>
+                            <div class="tab-pane fade" id="pills-empresa" role="tabpanel" aria-labelledby="pills-empresa-tab">
+                                    <consultas-internas-riscos-operacoes [idProposta]="idProposta"></consultas-internas-riscos-operacoes>
+                                    <div class="clearfix margin-top-25"></div>
+                                    <!-- <consultas-internas-posicao-investidor></consultas-internas-posicao-investidor> -->
+                                    <div class="clearfix margin-top-25"></div>
+                                    <consultas-internas-pocs-clientes [idProposta]="idProposta"></consultas-internas-pocs-clientes>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

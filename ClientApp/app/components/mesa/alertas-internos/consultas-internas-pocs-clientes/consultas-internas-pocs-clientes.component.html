@@ -1,0 +1,26 @@
+<div class="card card-shadow">
+    <div class="card-header bold font-12">
+        CONSULTA POC’S POR CLIENTE
+    </div>
+
+    <div class="card-block card-sm gray1 padding-10">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="center bold">IDENTIFICAÇÃO</th>
+                    <th class="center bold">EMITENTE</th>
+                    <th class="center bold">EMISSÃO</th>
+                    <th class="center bold">SITUAÇÃO</th>
+                    <th class="center bold">VALOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td class="center">{{poc?.identificacao}}</td>
+                <td class="center">{{poc?.emitente}}</td>
+                <td class="center">{{poc.emissao | date: 'dd/MM/yyyy'}}</td>
+                <td class="center">{{poc?.situacao}}</td>
+                <td class="center">{{poc.valor | currency: 'BRL':true}}</td>
+            </tbody>
+        </table>
+    </div>
+</div>

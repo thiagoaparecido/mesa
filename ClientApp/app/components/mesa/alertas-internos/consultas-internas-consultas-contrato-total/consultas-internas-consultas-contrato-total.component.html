@@ -1,0 +1,33 @@
+
+<div class="jumbotron jumbotron-sm gray1 margin-top-25 card-shadow">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="center bold"><div class="label">CONTRATOS<br />CDC</div></th>
+                <th class="center bold"><div class="label">CONTRATOS<br />LEA</div></th>
+                <th class="center bold"><div class="label">CONTRATOS<br />ATIVOS</div></th>
+                <th class="center bold"><div class="label">CONTRATOS<br />LIQUIDADOS</div></th>
+                <th class="center bold"><div class="label">CONTRATOS<br />LIQ. ANTECIPADOS</div></th>                    
+                <th class="center bold"><div class="label">SALDO<br />CONTÁBIL TOTAL</div></th>                    
+                <th class="center bold"><div class="label">SALDO<br />EM ATRASO</div></th>                    
+                <th class="center bold"><div class="label">SALDO<br />PAGO</div></th>                    
+                <th class="center bold"><div class="label">MÁX. ATRASO<br />DO CPF</div></th>                    
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="gray">
+                <td class="center bold">{{ total?.contratosCdc }}</td>
+                <td class="center bold">{{ total?.contratosLea }}</td>
+                <td class="center bold">{{ total?.contratosAtivos }}</td>
+                <td class="center bold">{{ total?.contratosLiquidados }}</td>
+                <td class="center bold">{{ total?.contratosLiquidadosAntecipados }}</td>                
+                <td class="center bold">{{ total?.saldoContabilTotal | currency: 'BRL':true }}</td>                
+                <td class="center bold">{{ total?.saldoEmAtraso | currency: 'BRL':true }}</td>                
+                <td class="center bold">{{ total?.saldoPago | currency: 'BRL':true }}</td>                
+                <td class="center bold">{{ total?.maximoEmAtrasoDoCpf }}</td>    
+            </tr>            
+        </tbody>
+    </table>
+</div>
+
+

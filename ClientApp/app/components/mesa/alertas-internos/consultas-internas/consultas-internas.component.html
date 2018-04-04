@@ -1,0 +1,28 @@
+<div class="card card-shadow margin-bottom-35">
+    <div class="card-header bold font-12">
+        CONSULTAS INTERNAS
+    </div>
+
+    <div class="card-block gray1 card-md padding-5">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th td class="center"><div class="label">TIPO</div></th>
+                    <th td class="center"><div class="label">IDENTIFICAÇÃO</div></th>
+                    <th td class="center"><div class="label">DATA INCLUSÃO</div></th>
+                    <th td class="center"><div class="label">CONSULTA</div></th>
+                    <th td class="center"><div class="label">RESTRIÇÃO</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of consultasInternas">                        
+                    <td class="center" [ngClass]="{'red-text': item?.consulta === 'ERRO'}">{{ item.tipo }}</td>
+                    <td class="center" [ngClass]="{'red-text': item?.consulta === 'ERRO'}">{{ item.identificacao | cpfMask}} (<span>{{item.tipoCliente}}</span>)</td>
+                    <td class="center" [ngClass]="{'red-text': item?.consulta === 'ERRO'}">{{ item.dataConsulta | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+                    <td class="center" [ngClass]="{'red-text': item?.consulta === 'ERRO'}">{{ item.consulta }}</td>
+                    <td class="center" [ngClass]="{'red-text': item?.consulta === 'ERRO'}">{{ item.restricao }}</td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

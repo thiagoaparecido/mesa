@@ -1,0 +1,77 @@
+<div class="card card-shadow">
+    <div class="card-header bold font-12">
+        CONSULTA CONTRATOS CDC E LEASING
+    </div>
+
+    <div class="card-block card-sm gray1 padding-10">
+        <!-- <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><div class="label">EMISSÃO</div></th>
+                    <th><div class="label">STATUS</div></th>
+                    <th><div class="label">ANO MODELO</div></th>
+                    <th><div class="label">MARCA</div></th>
+                    <th><div class="label">MODELO</div></th>
+                    <th><div class="label">MEDIA ATRASO</div></th>
+                    <th><div class="label">VALOR DO VEÍCULO</div></th>
+                    <th><div class="label">VALOR DA PARCELA</div></th>
+                    <th><div class="label">PRAZO</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contrato of contratos">
+                    <td>
+                        <i class="material-icons blue-text">add_circle</i>
+                        <i class="material-icons blue-text">remove_circle</i>
+                    </td>
+                    <td>{{ contrato?.emissao | date: "dd/MM/yyyy" }}</td>
+                    <td>{{ contrato?.status }}</td>
+                    <td>{{ contrato?.anoModelo }}</td>
+                    <td>{{ contrato?.marca }}</td>
+                    <td>{{ contrato?.modelo }}</td>
+                    <td>{{ contrato?.mediaAtraso }} dias</td>
+                    <td>{{ contrato?.valorVeiculo | currency: 'BRL':true }}</td>
+                    <td>{{ contrato?.valorParcela | currency: 'BRL':true }}</td>
+                    <td>{{ contrato?.parcelasPagas }}/{{ contrato?.parcelasTotal }}</td>
+                </tr>
+                <tr>
+                    <consultas-internas-consultas-contrato-detalhe [idContrato]="contrato?.idContrato"></consultas-internas-consultas-contrato-detalhe>
+                </tr>
+            </tbody>
+        </table> -->
+
+
+        <div class="row">
+            <div class="col-sm-1 no-padding center"></div>
+            <div class="col-sm-1 no-padding center"><div class="label">EMISSÃO</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">STATUS</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">ANO MODELO</div></div>
+            <div class="col-sm-2 no-padding center"><div class="label">MARCA</div></div>
+            <div class="col-sm-2 no-padding center"><div class="label">MODELO</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">MEDIA ATRASO</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">VALOR DO VEÍCULO</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">VALOR DA PARCELA</div></div>
+            <div class="col-sm-1 no-padding center"><div class="label">PRAZO</div></div>
+        </div>
+
+        <div class="row" *ngFor="let contrato of contratos">
+            <div class="col-sm-1 no-padding center">
+                <i class="material-icons blue-text" *ngIf='row_no != expandedIndex' (click)='expandRow(row_no)'>add_circle</i>
+                <i class="material-icons blue-text" *ngIf='row_no === expandedIndex' (click)='expandRow(row_no)'>remove_circle</i>
+            </div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.emissao | date: "dd/MM/yyyy" }}</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.status }}</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.anoModelo }}</div>
+            <div class="col-sm-2 no-padding center">{{ contrato?.marca }}</div>
+            <div class="col-sm-2 no-padding center">{{ contrato?.modelo }}</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.mediaAtraso }} dias</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.valorVeiculo | currency: 'BRL':true }}</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.valorParcela | currency: 'BRL':true }}</div>
+            <div class="col-sm-1 no-padding center">{{ contrato?.parcelasPagas }}/{{ contrato?.parcelasTotal }}</div>
+            <div class="col-sm-12" *ngIf='row_no === expandedIndex'>
+                <consultas-internas-consultas-contrato-detalhe [idContrato]="contrato.idContrato"></consultas-internas-consultas-contrato-detalhe>
+            </div>
+        </div>
+    </div>
+</div>

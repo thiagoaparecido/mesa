@@ -1,0 +1,26 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="center blue-text">CONTRATO</th>
+            <th class="center blue-text">FICHA</th>
+            <th class="center blue-text">1 VENCIMENTO</th>
+            <th class="center blue-text">% PARCELAS PAGAS</th>
+            <th class="center blue-text">SALDO CONTÁBIL</th>
+            <th class="center blue-text">MÁX ATRASO</th>
+            <th class="center blue-text">VALOR PRINCIPAL</th>
+            <th class="center blue-text">% ENTRADA</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detalhe of detalhes">
+            <td class="center blue-text">{{ detalhe?.idContrato }}</td>
+            <td class="center blue-text">{{ detalhe?.idProposta }}</td>
+            <td class="center blue-text">{{ detalhe?.primeiroVencimento | date: "dd/MM/yyyy" }}</td>
+            <td class="center blue-text">{{ detalhe?.porcentagemParcelasPagas | number : '1.2-2' }}%</td>
+            <td class="center blue-text">{{ detalhe?.saldoContabil | currency: 'BRL': true }}</td>
+            <td class="center blue-text">{{ detalhe?.maximoAtraso }} dias</td>
+            <td class="center blue-text">{{ detalhe?.valorPrincipal | currency: 'BRL': true }}</td>
+            <td class="center blue-text">{{ detalhe?.porcentagemEntrada | number : '1.2-2' }}%</td>
+        </tr>
+    </tbody>
+</table>

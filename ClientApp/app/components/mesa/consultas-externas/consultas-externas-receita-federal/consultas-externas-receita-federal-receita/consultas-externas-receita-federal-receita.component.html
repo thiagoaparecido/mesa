@@ -1,0 +1,40 @@
+<div class="card card-safra-cor margin-top-20" *ngFor="let item of receita">
+    <div class="card-header bold">
+        RECEITA FEDERAL
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">CPF</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.cpf }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">NOME</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.nome }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">SITUAÇÃO CADASTRAL</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.situacaoCadastral }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <div class="label">DATA DA INSCRIÇÃO</div>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text" *ngIf="getExibirData(item.dtInscricao) == true">{{ item.dtInscricao | date: 'dd/MM/yyyy' }}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="row margin-top-25">
+    <div class="col">
+        <button class="btn btn-info" (click)="exibir(2)" [ngClass]="{'active': selecao == 2}">À VENCER</button>
+        <button class="btn btn-info" (click)="exibir(3)" [ngClass]="{'active': selecao == 3}">VENCIDO</button>
+        <button class="btn btn-info" (click)="exibir(4)" [ngClass]="{'active': selecao == 4}">PREJUÍZO</button>
+    </div>
+</div>
+
+<consultas-externas-bacen-parcela-avencer [fluxo]='fluxo' *ngIf="selecao == 2"></consultas-externas-bacen-parcela-avencer>
+<consultas-externas-bacen-parcela-vencido [fluxo]='fluxo' *ngIf="selecao == 3"></consultas-externas-bacen-parcela-vencido>
+<consultas-externas-bacen-parcela-prejuizo [fluxo]='fluxo' *ngIf="selecao == 4"></consultas-externas-bacen-parcela-prejuizo>

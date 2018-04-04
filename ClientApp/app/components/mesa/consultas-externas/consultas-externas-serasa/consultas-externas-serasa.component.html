@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col">
+        <button class="btn btn-info" (click)="exibir(0)">VISÃO GERAL</button>
+        <button class="btn btn-info" (click)="exibir(1)">PROPONENTE</button>
+        <button class="btn btn-info" (click)="exibir(3)">CÔNJUGE</button>
+        <button class="btn btn-info" (click)="exibir(2)">AVALISTA</button>
+        <button class="btn btn-info" (click)="exibir(4)">CNPJ</button>
+    </div>
+</div>
+
+<div class="row padding-15">
+    <div class="col">
+        <consultas-externas-serasa-total [total]="serasa?.total"></consultas-externas-serasa-total>
+    </div>
+</div>
+<div class="row padding-15">
+    <div class="col">
+        <consultas-externas-serasa-restricoes [restricoes]="serasa?.restricoes"></consultas-externas-serasa-restricoes>
+    </div>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>
+<spinner [loading]='loading' [fullScreen]='true'></spinner>

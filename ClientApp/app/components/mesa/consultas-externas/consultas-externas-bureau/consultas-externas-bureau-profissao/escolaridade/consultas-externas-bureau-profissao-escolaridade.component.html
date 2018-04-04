@@ -1,0 +1,15 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-header bold">
+        ESCOLARIDADE
+    </div>
+    <div class="card-block gray" *ngFor="let escolaridade of escolaridades">
+        <div class="row">
+            <div class="col-2"><span class="label">CREDD</span></div>
+            <div class="col-10"><span class="label-text">{{ escolaridade?.origem }}</span></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><span class="label">ZIPCODE</span></div>
+            <div class="col-10"><span class="label-text">{{ escolaridade?.escolaridade }}</span></div>
+        </div>
+    </div>
+</div>

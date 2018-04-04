@@ -1,0 +1,81 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-block gray" *ngFor="let item of fluxo?.bacenFluxoParcela">
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text bold">VENCIDO</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Vencido 15d a 30d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido15d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Vencido 31d a 60d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido31d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Vencido 61d a 90d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido61d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Vencido 91d a 180d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido91d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Vencido 181d a 360d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido181d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">Acima de 360 dias</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorVencido360d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+    </div>
+</div>

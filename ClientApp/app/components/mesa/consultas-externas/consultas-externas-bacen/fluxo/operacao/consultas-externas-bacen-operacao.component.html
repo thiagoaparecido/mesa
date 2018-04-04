@@ -1,0 +1,47 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3">
+                <span class="label">DATA<br>BASE</span>
+            </div>
+            <!-- <div class="col-2">
+                <span class="label">SITUAÇÃO PROC.<br>IF's</span>
+            </div>
+            <div class="col-2">
+                <span class="label">SITUAÇÃO PROC.<br>VALOR</span>
+            </div> -->
+            <div class="col-3">
+                <span class="label">QTDE.<br>OPERAÇÕES</span>
+            </div>
+            <div class="col-3">
+                <span class="label">QTDE. IFs<br>COM OPERAÇÕES</span>
+            </div>
+            <div class="col-3">
+                <span class="label">DATA INÍCIO<br>DA OPERAÇÃO</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.dataBase }}</span>
+            </div>
+            <!-- <div class="col-2">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.situacaoProcIfs }} %</span>
+            </div>
+            <div class="col-2">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.situacaoProcValor }} %</span>
+            </div> -->
+            <div class="col-3">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.qtdOperacoes }}</span>
+            </div>
+            <div class="col-3">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.qtdIfsComOperacoes }}</span>
+            </div>
+            <div class="col-3">
+                <span class="label-text">{{ fluxo?.bacenFluxoOperacao?.dtInicioOperacao | date: 'dd/MM/yyyy' }}</span>
+            </div>
+        </div>
+    </div>
+</div>

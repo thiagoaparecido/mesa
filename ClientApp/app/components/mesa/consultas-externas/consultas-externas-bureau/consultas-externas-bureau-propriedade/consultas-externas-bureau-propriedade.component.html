@@ -1,0 +1,4 @@
+<consultas-externas-bureau-propriedade-veiculo [veiculos]="propriedade?.veiculos"></consultas-externas-bureau-propriedade-veiculo>
+<consultas-externas-bureau-propriedade-imovel [imoveis]="propriedade?.imoveis"></consultas-externas-bureau-propriedade-imovel>
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>
+<spinner [loading]='loading' [fullScreen]='true'></spinner>

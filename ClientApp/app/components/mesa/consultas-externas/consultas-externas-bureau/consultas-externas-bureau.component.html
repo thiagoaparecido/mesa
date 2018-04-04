@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="clearfix margin-top-15"></div>
+        <button class="btn btn-info btn-lg" (click)="exibir('EMPRESAS VINCULADAS')" [ngClass]="{active: empresas == true}">EMPRESAS VINCULADAS</button>
+        <button class="btn btn-info btn-lg" (click)="exibir('PROPRIEDADES')" [ngClass]="{active: propriedades == true}">PROPRIEDADES</button>
+        <button class="btn btn-info btn-lg" (click)="exibir('PARENTESCO')" [ngClass]="{active: parentesco == true}">PARENTESCO</button>
+        <button class="btn btn-info btn-lg" (click)="exibir('PROFISSAO E ESCOLARIDADE')" [ngClass]="{active: profissao == true}">PROFISSÃO E ESCOLARIDADE</button>
+        <button class="btn btn-info btn-lg" (click)="exibir('RENDA')" [ngClass]="{active: renda == true}">RENDA</button>
+        <button class="btn btn-info btn-lg" (click)="exibir('SIMILARIDADE')" [ngClass]="{active: similaridade == true}">SIMILARIDADE</button>
+    </div>
+</div>
+<div class="row margin-top-10">
+    <div class="col-sm-12">
+        <consultas-externas-bureau-empresa *ngIf="empresas" [idProposta]="idProposta"></consultas-externas-bureau-empresa>
+        <consultas-externas-bureau-propriedade *ngIf="propriedades" [idProposta]="idProposta"></consultas-externas-bureau-propriedade>
+        <consultas-externas-bureau-parentesco *ngIf="parentesco" [idProposta]="idProposta"></consultas-externas-bureau-parentesco>
+        <consultas-externas-bureau-profissao *ngIf="profissao" [idProposta]="idProposta"></consultas-externas-bureau-profissao>
+        <consultas-externas-bureau-renda *ngIf="renda" [idProposta]="idProposta"></consultas-externas-bureau-renda>
+        <consultas-externas-bureau-similaridade *ngIf="similaridade" [idProposta]="idProposta"></consultas-externas-bureau-similaridade>
+    </div>
+</div>

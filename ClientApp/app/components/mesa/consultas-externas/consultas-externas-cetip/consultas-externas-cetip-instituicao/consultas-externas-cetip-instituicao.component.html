@@ -1,0 +1,49 @@
+<div class="card-header bold margin-top-15">
+    {{ instituicao?.instituicao }}
+</div>
+<div class="card-block gray">
+    <div class="row">
+        <div class="col-2 label">ID TABELA<br /> MERCADO</div>
+        <div class="col-2 label">VLR. QUANDO<br /> ADQUIRIDO</div>
+        <div class="col-2 label">VLR. ATUAL<br /> VEÍCULO</div>
+        <div class="col-2 label">VLR FINANCIADO <br />PRESUMIDO</div>
+        <div class="col-2 label">DT. DO <br />CONTRATO</div>
+        <div class="col-2 label">DT. INCLUSÃO <br />SNG</div>
+        <div class="col-2 label">DT. BAIXA <br />SNG</div>
+        <div class="col-2 label">AUTO-FINANCIAMENTO</div>
+        <div class="col-2 label">ANO AQUISIÇÃO <br />DO VEÍCULO</div>
+        <div class="col-2 label">ANO QUE DEIXOU<br /> DE PERTENCER AO CPF</div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.idTabelaMercado }}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.valorAdquiridoVeiculo | currency:'BRL':true }}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.valorAtualVeiculo | currency:'BRL':true }}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.valorFinanciadoPresumido | currency:'BRL':true }}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center" *ngIf="getExibirData(instituicao.dataContrato) == true">{{ instituicao.dataContrato | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center" *ngIf="getExibirData(instituicao.dataInclusaoSNG) == true">{{ instituicao.dataInclusaoSNG | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center" *ngIf="getExibirData(instituicao.dataBaixaSNG) == true">{{ instituicao.dataBaixaSNG | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.autoFinanciamento == true ? 'SIM' : 'NÃO' }}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.anoAquisicaoVeiculo | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <div class="col-2">
+            <span class="label-text center">{{ instituicao.anoDeixouPertencerCPF | date: 'dd/MM/yyyy'}}</span>
+        </div>
+    </div>
+</div>

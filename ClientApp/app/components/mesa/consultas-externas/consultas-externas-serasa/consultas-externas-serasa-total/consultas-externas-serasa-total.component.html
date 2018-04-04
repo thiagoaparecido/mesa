@@ -1,0 +1,18 @@
+<div class="row card-block gray">
+    <div class="col label">TOTAL DE<br />DÍVIDAS VENCIDAS</div>
+    <div class="col label">QUANTIDADE DE <br />CHEQUES SEM FUNDO</div>
+    <div class="col label">TOTAL DE CHEQUES <br />SEM FUNDO DO BB</div>
+    <div class="col label">TOTAL REFIN</div>
+    <div class="col label">TOTAL PEFIN</div>
+    <div class="col label">PARTICIPAÇÃO <br />EM FALÊNCIA</div>
+    <div class="col label">TOTAL DE <br />AÇÕES</div>
+</div>
+<div class="row">
+    <div class="col label-text center border-right">{{ total?.totalDividasVencidas | currency: 'BRL':true }}</div>
+    <div class="col label-text center border-right">{{ total?.qtdChequesSemFundo }}</div>
+    <div class="col label-text center border-right">{{ total?.totalChequesSemFundoBB | currency: 'BRL':true }}</div>
+    <div class="col label-text center border-right">{{ total?.totalRefin | currency: 'BRL':true }}</div>
+    <div class="col label-text center border-right">{{ total?.totalPefin | currency: 'BRL':true }}</div>
+    <div class="col label-text center border-right">{{ total?.participacaoFalencia == true ? 'SIM' : 'NÃO' }}</div>
+    <div class="col label-text center">{{ total?.totalAcoes | currency: 'BRL':true }}</div>
+</div>

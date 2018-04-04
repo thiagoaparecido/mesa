@@ -1,0 +1,57 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-header bold">
+        BACEN - FLUXO DE VENCIMENTO CONSOLIDADO
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col">
+                <span class="label">DATA BASE</span>
+            </div>
+            <div class="col">
+                <span class="label">À VENCER</span>
+            </div>
+            <div class="col">
+                <span class="label">VENCIDO</span>
+            </div>
+            <div class="col">
+                <span class="label">PREJUÍZO</span>
+            </div>
+            <div class="col">
+                <span class="label">CARTEIRA<br>CRÉDITO</span>
+            </div>
+            <div class="col">
+                <span class="label">LIMITES DE<br>CRÉDITO</span>
+            </div>
+            <div class="col">
+                <span class="label">TOTAL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-block gray">
+        <div class="row" *ngFor="let historico of historicos">
+            <div class="col">
+                <span class="label-text">{{ historico?.dataBase | date: 'MM-yyyy' }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.aVencer | currency: 'BRL':true }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.vencido | currency: 'BRL':true }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.prejuizo | currency: 'BRL':true }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.carteiraCredito | currency: 'BRL':true }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.limiteCredito | currency: 'BRL':true }}</span>
+            </div>
+            <div class="col">
+                <span class="label-text">{{ historico?.total | currency: 'BRL':true }}</span>
+            </div>
+        </div>
+    </div>
+</div>

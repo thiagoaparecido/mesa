@@ -1,0 +1,22 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-md-1 bold">OUTROS CRÉDITOS</div>
+            <div class="col-md-11">
+                <div class="col-md-1 xsmall" *ngFor="let item of bacenModalidade?.outrosCreditosTotal">
+                    {{ item.total | number : '1.2-2' }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of bacenModalidade?.outrosCreditos">
+                <div class="col-md-1">{{ item.descricao }}</div>
+                <div class="col-md-11">
+                    <div class="col-md-1 xsmall" *ngFor="let valor of item?.valores">
+                        {{ valor.valor | number : '1.2-2' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

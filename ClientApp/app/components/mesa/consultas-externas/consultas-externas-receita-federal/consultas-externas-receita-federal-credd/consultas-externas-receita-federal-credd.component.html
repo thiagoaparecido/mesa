@@ -1,0 +1,32 @@
+<div class="card card-safra-cor margin-top-20" *ngFor="let item of credd">
+    <div class="card-header bold">
+        CREDD
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3 padding-8">
+                <div class="label">DATA DA CONSULTA</div>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item?.dtConsulta | date: 'dd/MM/yyyy' }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">STATUS</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item?.status }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">NOME DA RECEITA</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item?.nomeReceita }}</div>
+            </div>
+        </div>
+    </div>
+</div>

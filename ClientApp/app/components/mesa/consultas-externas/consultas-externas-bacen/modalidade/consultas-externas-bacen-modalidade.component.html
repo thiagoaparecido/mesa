@@ -1,0 +1,4 @@
+<consultas-externas-bacen-modalidade-data-base *ngIf="bacenModalidade.emprestimos.length > 0 || bacenModalidade.financiamentos.length > 0 || bacenModalidade.outrosCreditos.length > 0" [bacenModalidade]="bacenModalidade"></consultas-externas-bacen-modalidade-data-base>
+<consultas-externas-bacen-modalidade-emprestimos *ngIf="bacenModalidade.emprestimos.length > 0" [bacenModalidade]="bacenModalidade"></consultas-externas-bacen-modalidade-emprestimos>
+<consultas-externas-bacen-modalidade-financiamentos *ngIf="bacenModalidade.financiamentos.length > 0" [bacenModalidade]="bacenModalidade"></consultas-externas-bacen-modalidade-financiamentos>
+<consultas-externas-bacen-modalidade-outros-creditos *ngIf="bacenModalidade.outrosCreditos.length > 0" [bacenModalidade]="bacenModalidade"></consultas-externas-bacen-modalidade-outros-creditos>

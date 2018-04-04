@@ -1,0 +1,24 @@
+<div class="card-block gray">
+    <div class="row">
+        <div class="col">MARCA/MODELO</div>
+        <div class="col">ANO MODELO</div>
+        <div class="col">STATUS DO VEÍCULO</div>
+        <div class="col">VEÍCULO FINANCIADO</div>
+        <div class="col">STATUS DO FINANCIAMENTO</div>
+        <div class="col">TIPO GRAVAME</div>
+        <div class="col">TIPO DE AGENTE FINANCEIRO</div>
+        <div class="col">PRAZO FINC. SNG</div>
+        <div class="col">PRAZO DEC. CONTRATO (%)</div>
+    </div>
+    <div class="row">
+        <div class="col">{{ bem.marca }}/{{ bem.modelo }}</div>
+        <div class="col">{{ bem.anoModelo }}</div>
+        <div class="col">{{ bem.statusVeiculo }}</div>
+        <div class="col">{{ bem.veiculoFinanciado == true ? 'SIM' : 'NÃO' }}</div>
+        <div class="col">{{ bem.statusFinanciamento }}</div>
+        <div class="col">{{ bem.tipoGravame }}</div>
+        <div class="col">{{ bem.tipoAgenteFinanceiro }}</div>
+        <div class="col">{{ bem.prazoFinSNG }}</div>
+        <div class="col">{{ bem.prazoDecContrato }} %</div>        
+    </div>
+</div>

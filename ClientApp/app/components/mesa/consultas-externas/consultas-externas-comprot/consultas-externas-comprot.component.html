@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col">
+        <button class="btn btn-info" (click)="exibir(1)">PROPONENTE</button>
+        <button class="btn btn-info" (click)="exibir(3)">CÔNJUGE</button>
+        <button class="btn btn-info" (click)="exibir(2)">AVALISTA</button>
+    </div>
+</div>
+
+<div class="card card-safra-cor margin-top-20" *ngFor="let item of comprot">
+    <div class="card-header bold">
+        {{ item?.empresa }}
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3 padding-8"><span class="label">ORGÃO</span></div>
+            <div class="col-9 padding-8"><div class="label-text">{{ item?.orgao }}</div></div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8"><div class="label">DT. DO MOVIMENTO</div></div>
+            <div class="col-9 padding-8"><div class="label-text">{{ item?.dtMovimento | date: 'dd/MM/yyyy' }}</div></div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8"><div class="label">DESCRIÇÃO</div></div>
+            <div class="col-9 padding-8"><div class="label-text">{{ item?.descricao }}</div></div>
+        </div>
+    </div>
+</div>
+    
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>
+<spinner [loading]='loading' [fullScreen]='true'></spinner>

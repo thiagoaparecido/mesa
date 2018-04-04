@@ -1,0 +1,81 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-block gray" *ngFor="let item of fluxo?.bacenFluxoParcela">
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text bold">À VENCER</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer 15d a 30d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer30d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer 31d a 60d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer31d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer 61d a 90d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer61d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer 91d a 180d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer91d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer 181d a 360d</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer181d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">À vencer acima de 360 dias</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ item.valorAVencer360d | currency: 'BRL': true }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text"> %</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-header bold">
+        BACEN - FLUXO DE VENCIMENTO CONSOLIDADO
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-4">
+                <span class="label">MODALIDADE</span>
+            </div>
+            <div class="col-4">
+                <span class="label">VALOR</span>
+            </div>
+            <div class="col-4">
+                <span class="label">% FECHADO</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-4">
+                <span class="label-text">{{ fluxo?.bacenFluxoConsolidado?.modalidade }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ fluxo?.bacenFluxoConsolidado?.valor }}</span>
+            </div>
+            <div class="col-4">
+                <span class="label-text">{{ fluxo?.bacenFluxoConsolidado?.fechado }} %</span>
+            </div>
+        </div>
+    </div>
+</div>

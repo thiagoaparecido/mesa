@@ -1,0 +1,89 @@
+<div class="row padding-15">
+  <div class="col-sm-12">
+    <div class="clearfix margin-top-15"></div>
+    <ul class="nav nav-pills nav-justified" id="pills-tab-consultas-externas" role="tablist">
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-bacen-tab" data-toggle="pill" href="#pills-bacen" role="tab" aria-controls="pills-bacen" aria-selected="true"
+          (click)="exibir('BACEN')">BACEN</a>
+      </li>
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-bureaus-tab" data-toggle="pill" href="#pills-bureaus" role="tab" aria-controls="pills-bureaus"
+          aria-selected="true" (click)="exibir('BUREAUS')">BUREAUS</a>
+      </li>
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-cetip-tab" data-toggle="pill" href="#pills-cetip" role="tab" aria-controls="pills-cetip" aria-selected="true"
+          (click)="exibir('CETIP')">CETIP</a>
+      </li>
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-portal-tab" data-toggle="pill" href="#pills-portal" role="tab" aria-controls="pills-portal"
+          aria-selected="true" (click)="exibir('PORTAL')">PORTAL</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link consultas-externas-pill-ajust" id="pills-conselhoRegional-tab" data-toggle="pill" href="#pills-conselhoRegional"
+          role="tab" aria-controls="pills-conselhoRegional" aria-selected="true" (click)="exibir('CONSELHO REGIONAL')">CONSELHO REGIONAL</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-comprot-tab" data-toggle="pill" href="#pills-comprot" role="tab" aria-controls="pills-comprot"
+          aria-selected="true" (click)="exibir('COMPROT')">COMPROT</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-rais-tab" data-toggle="pill" href="#pills-rais" role="tab" aria-controls="pills-rais" aria-selected="true"
+          (click)="exibir('RAIS')">RAIS</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link consultas-externas-pill-ajust" id="pills-receitaFederal-tab" data-toggle="pill" href="#pills-receitaFederal"
+          role="tab" aria-controls="pills-receitaFederal" aria-selected="true" (click)="exibir('RECEITA FEDERAL')">RECEITA FEDERAL</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-serasa-tab" data-toggle="pill" href="#pills-serasa" role="tab" aria-controls="pills-serasa"
+          aria-selected="true" (click)="exibir('SERASA')">SERASA</a>
+      </li>
+
+      <li class="nav-item font-10 bold">
+        <a class="nav-link" id="pills-sintegra-tab" data-toggle="pill" href="#pills-sintegra" role="tab" aria-controls="pills-sintegra"
+          aria-selected="true" (click)="exibir('SINTEGRA')">SINTEGRA</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row padding-15">
+  <div class="col-sm-12">
+    <div class="tab-content" id="pills-tabContent-riscos">
+      <div class="tab-pane fade show" id="pills-bacen" role="tabpanel" aria-labelledby="pills-bacen-tab">
+        <consultas-externas-bacen *ngIf="bacen" [idProposta]="idProposta"></consultas-externas-bacen>
+      </div>
+      <div class="tab-pane fade show" id="pills-serasa" role="tabpanel" aria-labelledby="pills-serasa-tab">
+        <consultas-externas-serasa *ngIf="serasa" [idProposta]="idProposta"></consultas-externas-serasa>
+      </div>
+      <div class="tab-pane fade show" id="pills-conselhoRegional" role="tabpanel" aria-labelledby="pills-conselhoRegional-tab">
+        <consultas-externas-conselho-regional *ngIf="conselhoRegional" [idProposta]="idProposta"></consultas-externas-conselho-regional>
+      </div>
+      <div class="tab-pane fade show" id="pills-rais" role="tabpanel" aria-labelledby="pills-rais-tab">
+        <consultas-externas-rais *ngIf="rais" [idProposta]="idProposta"></consultas-externas-rais>
+      </div>
+      <div class="tab-pane fade show" id="pills-comprot" role="tabpanel" aria-labelledby="pills-comprot-tab">
+        <consultas-externas-comprot *ngIf="comprot" [idProposta]="idProposta"></consultas-externas-comprot>
+      </div>
+      <div class="tab-pane fade show" id="pills-sintegra" role="tabpanel" aria-labelledby="pills-sintegra-tab">
+        <consultas-externas-sintegra *ngIf="sintegra" [idProposta]="idProposta"></consultas-externas-sintegra>
+      </div>
+      <div class="tab-pane fade show" id="pills-cetip" role="tabpanel" aria-labelledby="pills-cetip-tab">
+        <consultas-externas-cetip *ngIf="cetip" [idProposta]="idProposta"></consultas-externas-cetip>
+      </div>
+      <div class="tab-pane fade show" id="pills-receitaFederal" role="tabpanel" aria-labelledby="pills-receitaFederal-tab">
+        <consultas-externas-receita-federal *ngIf="receitaFederal" [idProposta]="idProposta"></consultas-externas-receita-federal>
+      </div>
+      <div class="tab-pane fade show" id="pills-portal" role="tabpanel" aria-labelledby="pills-portal-tab">
+        <consultas-externas-portal *ngIf="portal" [idProposta]="idProposta"></consultas-externas-portal>
+      </div>
+      <div class="tab-pane fade show" id="pills-bureaus" role="tabpanel" aria-labelledby="pills-bureaus-tab">
+        <consultas-externas-bureau *ngIf="bureaus" [idProposta]="idProposta"></consultas-externas-bureau>
+      </div>
+    </div>
+  </div>
+</div>

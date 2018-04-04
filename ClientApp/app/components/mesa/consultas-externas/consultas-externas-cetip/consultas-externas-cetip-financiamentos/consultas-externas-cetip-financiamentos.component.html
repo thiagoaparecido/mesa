@@ -1,0 +1,6 @@
+<div *ngFor="let financiamento of financiamentos" class="row margin-top-15">
+    <div class="col">
+        <consultas-externas-cetip-bem [bem]="financiamento?.bem"></consultas-externas-cetip-bem>
+        <consultas-externas-cetip-instituicao [instituicao]="financiamento?.instituicao"></consultas-externas-cetip-instituicao>
+    </div>
+</div> 

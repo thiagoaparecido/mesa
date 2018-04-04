@@ -1,0 +1,18 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-header bold">
+        BACEN - MODALIDADE X DATA-BASE
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-md-1 xsmall">
+                <span class="label">MODALIDADE</span>
+            </div>
+            <div class="col-md-11">
+                <div class="col-md-1" *ngFor="let data of bacenModalidade?.modalidadeDataBases">
+                    <span class="label xsmall">{{ data.dataBase | date: "MM-yyyy" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

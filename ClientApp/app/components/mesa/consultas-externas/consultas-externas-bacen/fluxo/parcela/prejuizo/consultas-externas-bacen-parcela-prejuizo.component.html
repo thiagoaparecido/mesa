@@ -1,0 +1,48 @@
+<div class="card card-safra-cor margin-top-20">
+        <div class="card-block gray" *ngFor="let item of fluxo?.bacenFluxoParcela">
+            <div class="row">
+                <div class="col-4">
+                    <span class="label-text bold">PREJUÍZO</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text">{{ item.valorPrejuizo | currency: 'BRL': true }}</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text"> %</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <span class="label-text">Baixado até 12m</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text">{{ item.valorPrejuizoBaixado12 | currency: 'BRL': true }}</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text"> %</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <span class="label-text">Baixado até 12m à 48m</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text">{{ item.valorPrejuizoBaixado48 | currency: 'BRL': true }}</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text"> %</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <span class="label-text">Baixado mais de 48m</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text">{{ item.valorPrejuizoBaixado48m | currency: 'BRL': true }}</span>
+                </div>
+                <div class="col-4">
+                    <span class="label-text"> %</span>
+                </div>
+            </div>
+        </div>
+    </div>

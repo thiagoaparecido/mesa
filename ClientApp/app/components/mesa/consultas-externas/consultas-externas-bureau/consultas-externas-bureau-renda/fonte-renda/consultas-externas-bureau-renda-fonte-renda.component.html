@@ -1,0 +1,23 @@
+<div class="card card-safra-cor margin-top-20">
+        <div class="card-header bold">
+            RENDA
+        </div>
+        
+        <div class="card-block gray">
+            <div class="row">
+                <div class="col-2"><span class="label">FONTE</span></div>
+                <div class="col-2"><span class="label">RENDA</span></div>
+                <div class="col-2"><span class="label">VARIAÇÃO</span></div>
+                <div class="col-6"><span class="label">FAIXA DE RENDA</span></div>               
+            </div>
+        </div>
+    
+        <div class="card-block gray" *ngFor="let item of fontesRendas">        
+            <div class="row">
+                <div class="col-2"><span class="label-text">{{ item.fonte }}</span></div>
+                <div class="col-2"><span class="label-text">{{ item.renda | currency:'BRL':true }}</span></div>
+                <div class="col-2"><span class="label-text">{{ item.variacao | number : '1.2-2' }} %</span></div>
+                <div class="col-6"><span class="label-text">{{ item.faixaRenda }}</span></div>        
+            </div>
+        </div>
+</div>

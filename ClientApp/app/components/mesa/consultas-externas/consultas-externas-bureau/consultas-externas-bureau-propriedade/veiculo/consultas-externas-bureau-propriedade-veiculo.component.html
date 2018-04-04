@@ -1,0 +1,25 @@
+<div class="card card-safra-cor margin-top-20">
+    <div class="card-header bold">
+        VEÍCULOS
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-2"><span class="label">FONTE</span></div>
+            <div class="col-2"><span class="label">PLACA</span></div>
+            <div class="col-2"><span class="label">ANO MODELO</span></div>
+            <div class="col-2"><span class="label">MARCA</span></div>
+            <div class="col-4"><span class="label">MODELO</span></div>
+        </div>
+    </div>
+
+    <div class="card-block gray" *ngFor="let veiculo of veiculos">
+        <div class="row">
+            <div class="col-2"><span class="label-text">{{ veiculo?.fonte }}</span></div>
+            <div class="col-2"><span class="label-text">{{ veiculo?.placa }}</span></div>
+            <div class="col-2"><span class="label-text">{{ veiculo?.anoModelo }}</span></div>
+            <div class="col-2"><span class="label-text">{{ veiculo?.marca }}</span></div>
+            <div class="col-4"><span class="label-text">{{ veiculo?.modelo }}</span></div>
+        </div>
+    </div>
+</div>

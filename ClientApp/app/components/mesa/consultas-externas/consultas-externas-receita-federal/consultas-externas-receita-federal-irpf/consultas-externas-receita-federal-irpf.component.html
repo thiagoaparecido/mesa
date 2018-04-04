@@ -1,0 +1,56 @@
+<div class="card card-safra-cor margin-top-20" *ngFor="let item of irpf">
+    <div class="card-header bold">
+        IRPF
+    </div>
+
+    <div class="card-block gray">
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">ANO REFERÊNCIA</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.anoReferencia }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">BANCO</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.banco }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">AGÊNCIA</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.agencia }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">LOTE</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.lote }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <div class="label">DATA DISPONIBILIDADE</div>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text" *ngIf="getExibirData(item.dtDisponibilidade) == true">{{ item.dtDisponibilidade | date: 'dd/MM/yyyy' }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 padding-8">
+                <span class="label">SITUAÇÃO DO RESGATE DA REST.</span>
+            </div>
+            <div class="col-9 padding-8">
+                <div class="label-text">{{ item.situacaoResgateRestituicao }}</div>
+            </div>
+        </div>
+    </div>
+</div>

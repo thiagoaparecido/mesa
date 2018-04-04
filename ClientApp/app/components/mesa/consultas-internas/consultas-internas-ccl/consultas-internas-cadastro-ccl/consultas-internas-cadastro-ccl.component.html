@@ -1,0 +1,107 @@
+<div class="card card-shadow margin-bottom-35">
+    <h5 class="card-header bold font-12">CADASTRO NO CCL</h5>
+    <div class="card-body gray1">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 label left">
+                    <label>INFORMAÇÕES</label>
+                </div>
+                <div class="col-4 label left">
+                    <label>CADASTRO FICHA ATUAL</label>
+                </div>
+                <div class="col-4 label left">
+                    <label>CADASTRO NO CCL</label>
+                </div>
+            </div>
+            <div class="row padding-5 col-striped">
+                <div class="col-4 left"><label class="label">Nome:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.nomeDiferente}">{{ cadastroCCL?.fichaAtual.nome == null ? '&nbsp;' : cadastroCCL?.fichaAtual.nome }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.nome }}</div>
+
+                <div class="col-4 left"><label class="label">Data de Nascimento:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.dataNascimentoDiferente}">{{ cadastroCCL?.fichaAtual.dataNascimento == null ? '&nbsp;' : cadastroCCL?.fichaAtual.dataNascimento | date: 'dd/MM/yyyy' }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.dataNascimento | date: 'dd/MM/yyyy' }}</div>
+
+                <div class="col-4 left"><label class="label">Estado Civil:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.estadoCivilDiferente}">{{ cadastroCCL?.fichaAtual.estadoCivil == null ? '&nbsp;' : cadastroCCL?.fichaAtual.estadoCivil }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.estadoCivil }}</div>
+                
+                <div class="col-4 left"><label class="label">CEP:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.cepDiferente}">{{ cadastroCCL?.fichaAtual.cep == null ? '&nbsp;' : cadastroCCL?.fichaAtual.cep }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.cep }}</div>
+                
+                <div class="col-4 left"><label class="label">Endereço:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.logradouroDiferente}">{{ cadastroCCL?.fichaAtual.logradouro == null ? '&nbsp;' : cadastroCCL?.fichaAtual.logradouro }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.logradouro }}</div>
+
+                <div class="col-4 left"><label class="label">Número:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.numeroDiferente}">{{ cadastroCCL?.fichaAtual.numero == null ? '&nbsp;' : cadastroCCL?.fichaAtual.numero }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.numero }}</div>
+                
+                <div class="col-4 left"><label class="label">Compl:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.complementoDiferente}">{{ cadastroCCL?.fichaAtual.complemento == null ? '&nbsp;' : cadastroCCL?.fichaAtual.complemento }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.complemento }}</div>
+
+                <div class="col-4 left"><label class="label">Cidade:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.cidadeDiferente}">{{ cadastroCCL?.fichaAtual.cidade == null ? '&nbsp;' : cadastroCCL?.fichaAtual.cidade }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.cidade }}</div>
+                
+                <!--#region Telefones  -->
+                <div class="col-4 left"><label class="label">Telefone Residencial:</label></div>
+                <div class="col-4">
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneResidencialDiferente}">({{ cadastroCCL?.fichaAtual.dddResidencial == null ? '&nbsp;' : cadastroCCL?.fichaAtual.dddResidencial }})</span>
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneResidencialDiferente}">{{ cadastroCCL?.fichaAtual.telefoneResidencial == null ? '&nbsp;' : cadastroCCL?.fichaAtual.telefoneResidencial | telefoneMask}}</span>
+                </div>
+                <div class="col-4">
+                    <span *ngIf="cadastroCCL?.fichaCCL.telefoneResidencial != null">({{ cadastroCCL?.fichaCCL.dddResidencial == null ? '&nbsp;' : cadastroCCL?.fichaCCL.dddResidencial }})</span>
+                    {{ cadastroCCL?.fichaCCL.telefoneResidencial | telefoneMask}}
+                </div>
+
+                <div class="col-4 left"><label class="label">Celular:</label></div>
+                <div class="col-4">
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneCelularDiferente}">({{ cadastroCCL?.fichaAtual.dddCelular == null ? '&nbsp;' : cadastroCCL?.fichaAtual.dddCelular }})</span>
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneCelularDiferente}">{{ cadastroCCL?.fichaAtual.telefoneCelular == null ? '&nbsp;' : cadastroCCL?.fichaAtual.telefoneCelular | telefoneMask}}</span>
+                </div>
+                <div class="col-4">
+                        <span *ngIf="cadastroCCL?.fichaCCL.telefoneCelular != null">({{ cadastroCCL?.fichaCCL.dddCelular == null ? '&nbsp;' : cadastroCCL?.fichaCCL.dddCelular }})</span>
+                    {{ cadastroCCL?.fichaCCL.telefoneCelular | telefoneMask}}
+                </div>
+
+                <div class="col-4 left"><label class="label">Telefone Comercial:</label></div>
+                <div class="col-4">
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneComercialDiferente}">({{ cadastroCCL?.fichaAtual.dddComercial == null ? '&nbsp;' : cadastroCCL?.fichaAtual.dddComercial }})</span>
+                    <span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.telefoneComercialDiferente}">{{ cadastroCCL?.fichaAtual.telefoneComercial == null ? '&nbsp;' : cadastroCCL?.fichaAtual.telefoneComercial | telefoneMask}}</span>
+                </div>
+                <div class="col-4">
+                    <span *ngIf="cadastroCCL?.fichaCCL.telefoneComercial != null">({{ cadastroCCL?.fichaCCL.dddComercial == null ? '&nbsp;' : cadastroCCL?.fichaCCL.dddComercial }})</span>
+                    {{ cadastroCCL?.fichaCCL.telefoneComercial | telefoneMask}}
+                </div>
+                <!--#endregion -->
+
+                <div class="col-4 left"><label class="label">Ocupação:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.ocupacaoDiferente}">{{ cadastroCCL?.fichaAtual.ocupacao == null ? '&nbsp;' : cadastroCCL?.fichaAtual.ocupacao }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.ocupacao }}</div>
+
+                <div class="col-4 left"><label class="label">Profissão:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.profissaoDiferente}">{{ cadastroCCL?.fichaAtual.profissao == null ? '&nbsp;' : cadastroCCL?.fichaAtual.profissao }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.profissao }}</div>
+
+                <div class="col-4 left"><label class="label">Cargo:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.cargoDiferente}">{{ cadastroCCL?.fichaAtual.cargo == null ? '&nbsp;' : cadastroCCL?.fichaAtual.cargo }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.cargo }}</div>
+
+                <div class="col-4 left"><label class="label">Renda Mensal:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.rendaDiferente}">{{ cadastroCCL?.fichaAtual.renda == null ? '&nbsp;' : cadastroCCL?.fichaAtual.renda | currency: 'BRL':true }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.renda | currency: 'BRL':true }}</div>
+                
+                <div class="col-4 left"><label class="label">Nome do Cônjuge:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.nomeConjugeDiferente}">{{ cadastroCCL?.fichaAtual.nomeConjuge == null ? '&nbsp;' : cadastroCCL?.fichaAtual.nomeConjuge }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.nomeConjuge }}</div>
+                                
+                <div class="col-4 left"><label class="label">Nome da Mãe:</label></div>
+                <div class="col-4"><span [ngClass]="{'diferente': cadastroCCL?.fichaCCL?.nomeMaeDiferente}">{{ cadastroCCL?.fichaAtual.nomeMae == null ? '&nbsp;' : cadastroCCL?.fichaAtual.nomeMae }}</span></div>
+                <div class="col-4">{{ cadastroCCL?.fichaCCL.nomeMae }}</div>
+            </div>
+        </div>
+    </div>
+</div>    

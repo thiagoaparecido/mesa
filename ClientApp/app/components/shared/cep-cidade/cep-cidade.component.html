@@ -1,0 +1,99 @@
+<div class="modal-common">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Endereço - Proposta {{ idProposta }}</h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="closeModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form novalidate [formGroup]="myForm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cep:</label>
+                                <div class="label-text">
+                                    <div class="form-group">
+                                        {{ endereco.cep }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Logradouro:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(logradouro)">
+                                        <input class="form-control" formControlName="logradouro" type="text" id="logradouro" minlength="3" maxlength="60" pattern="^[a-zA-Z0-9_ ]{1,60}$" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Número:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(numero)">
+                                        <input class="form-control" formControlName="numero" type="text" id="numero" minlength="1" maxlength="5" pattern="^[0-9]{1,5}$" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Complemento:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(complemento)">
+                                        <input class="form-control" formControlName="complemento" type="text" id="complemento" minlength="0" maxlength="30" pattern="^[a-zA-Z0-9_ ]{1,30}$">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Bairro:</label>
+                                <div class="label-text">
+                                    <div class="form-group" [ngClass]="getFormClass(bairro)">
+                                        <input class="form-control" formControlName="bairro" type="text" id="bairro" minlength="1" maxlength="30" pattern="^[a-zA-Z_ ]{1,30}$" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Cidade:</label>
+                                <div class="label-text">
+                                    <div class="form-group">
+                                        {{ endereco.cidade }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-md-12">
+                            <div class="margin-vertical-5">
+                                <label class="label">Estado:</label>
+                                <div class="label-text">
+                                    <div class="form-group">
+                                        {{ endereco.idEstado }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>    
+                </form>    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Fechar</button>
+                <button type="button" [disabled]="!myForm.valid" (click)="gravar()" class="btn btn-sm btn-safra small float-right">Gravar</button>
+                <!-- {{ myForm.valid }}<br>
+                <br>Logradouro: {{ myForm.controls.logradouro.valid }}
+                <br>Numero: {{ myForm.controls.numero.valid }}
+                <br>Complemento: {{ myForm.controls.complemento.valid }}
+                <br>Bairro: {{ myForm.controls.bairro.valid }} -->
+            </div>
+        </div>
+    </div>            
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>

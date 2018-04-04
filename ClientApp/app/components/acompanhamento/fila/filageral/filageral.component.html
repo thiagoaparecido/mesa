@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="no-margin-bottom" *ngFor='let item of filaGeral.filaTotais; let row_no = index'>
+        <div class="row h6 gray1 bold center padding-5 no-margin-bottom">
+            <div class="col-sm-1 center">
+                <i class="material-icons icon-sm" *ngIf='expandedIndexChecado.indexOf(row_no, 0) === -1 ' (click)='expandRow(row_no)'>keyboard_arrow_right</i>
+                <i class="material-icons icon-sm" *ngIf='expandedIndexChecado.indexOf(row_no, 0) > -1' (click)='expandRow(row_no)'>keyboard_arrow_down</i>                
+            </div>
+            <div class="col-sm-1 center">{{ item.id_fila }}</div>
+            <div class="col-sm-1 center">{{ item.ds_mesa }}</div>
+            <div class="col-sm-5 center">{{ item.nm_fila }}</div>
+            <div class="col-sm-1 center">{{ item.qtd_fila }}</div>
+            <div class="col-sm-1 center">{{ item.qtd_emanalise }}</div>            
+            <div class="col-sm-1 center">{{ item.qtd_usuarios_fila }}</div>
+            <div class="col-sm-1 center">{{ item.qtd_usuarios_analise }}</div>
+        </div>
+        
+        <div class="container-fluid no-margin-bottom">
+            <div class="row" *ngIf='expandedIndexChecado.indexOf(row_no, 0) > -1'>           
+                <fila-geral-detalhe [idFila]='item.id_fila' [captura]='true' [idCliente]='idCliente' style="width: 100%"></fila-geral-detalhe>
+            </div>
+        </div>
+    </div>        
+    <fila-total-geral [filaGeral]='filaGeral'></fila-total-geral>
+</div>

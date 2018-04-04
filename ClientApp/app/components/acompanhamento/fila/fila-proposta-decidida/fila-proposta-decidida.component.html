@@ -1,0 +1,27 @@
+<div *ngIf="propostaDecidida.filaPropostaDecidida != null" class="container-fluid">
+    <div class="row h6 black white-text center padding-5">
+        <div class="col-sm-12 center bold">PROPOSTAS DECIDIDAS</div>
+    </div>
+    <table class="table">
+        <thead class="h6">
+            <th>Descrição</th>
+            <th>Quantidade</th>
+        </thead>
+    </table>   
+    <div class="no-margin-bottom" *ngFor='let item of propostaDecidida.filaPropostaDecidida; let row_no = index'>
+        <div class="row h6 gray1 bold center padding-5 no-margin-bottom">
+            <div class="col-sm-1 center">
+                <i class="material-icons icon-sm" *ngIf='expandedIndexChecado.indexOf(row_no, 0) === -1 ' (click)='expandRow(row_no)'>keyboard_arrow_right</i>
+                <i class="material-icons icon-sm" *ngIf='expandedIndexChecado.indexOf(row_no, 0) > -1' (click)='expandRow(row_no)'>keyboard_arrow_down</i>
+            </div>
+            <div class="col-sm-8 center">{{item.dsPropostaDecisao}}</div>
+            <div class="col-sm-3 center">{{item.qtde}}</div>
+        </div>
+    
+        <div class="container-fluid no-margin-bottom">
+            <div class="row" *ngIf='expandedIndexChecado.indexOf(row_no, 0) > -1'>          
+                <proposta-decidida-detalhe [idDecisao]='item.idPropostaDecisao' [idCliente]='idCliente' style="width: 100%"></proposta-decidida-detalhe>
+            </div>
+        </div>
+    </div>
+</div>

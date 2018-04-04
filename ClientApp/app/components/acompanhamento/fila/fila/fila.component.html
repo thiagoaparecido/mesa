@@ -1,0 +1,96 @@
+<fila-header></fila-header>
+<spinner [loading]='loading' [fullScreen]='true'></spinner>
+<div class="container-fluid">
+    <section>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group margin-top-10">
+                    <label for="buscaCpf">CPF</label>
+                    <input #cpf (keyup.enter)='pesquisarCpf(cpf.value)' (blur)="setBlur('cpf')" maxlength="18" type="text" mask-cpf-cnpj="" id="buscaCpf" class="form-control form-control-sm"
+                        data-placement="bottom" title="Digite o CPF e tecle ENTER para pesquisar">
+                </div>
+            </div>
+            <!-- <div class="col-sm-1">
+                <div class="form-group margin-top-10">
+                    <label for="buscaProposta">Proposta</label>
+                    <input #proposta maxlength="18" (keyup.enter)="pesquisarProposta(proposta.value)" type="text" (blur)="setBlur('proposta')" id="buscaProposta" class="form-control form-control-sm"
+                        data-placement="bottom" title="Digite o código da proposta e tecle ENTER para pesquisar">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group margin-top-10">
+                    <label for="buscaNome">Nome</label>
+                    <input #nome maxlength="18" (keyup.enter)="pesquisarNome(nome.value)" type="text" (blur)="setBlur('nome')" id="buscaNome" class="form-control form-control-sm"
+                        data-placement="bottom" title="Digite o nome e tecle ENTER para pesquisar">
+                </div>
+            </div> -->
+            <div class="col-sm-10">
+                <div clas="row">
+                    <div class="col-sm-2"></div>
+                    <div *ngIf="showLegenda" id="legendasFila" class="right">
+                        <div class="col-sm-2 margin-top-20">
+                            <div class="margin-horizontal-10 center">
+                                <div class="circle-label-xsm red"></div>
+                                <span class="center">Proposta Pendenciada</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 margin-top-20">
+                            <div class="margin-horizontal-10 center">
+                                <div class="circle-label-xsm blue"></div>
+                                <span class="center">Em Analise</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 margin-top-20">
+                            <div class="margin-horizontal-10 center">
+                                <div class="circle-label-xsm green"></div>
+                                <span class="center">Agendada a Vencer</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 margin-top-20">
+                            <div class="margin-horizontal-10 center">
+                                <div class="circle-label-xsm yellow"></div>
+                                <span class="center">Agendada Vencida</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 margin-top-20">
+                            <div class="margin-horizontal-10 center">
+                                <div class="circle-label-xsm purple"></div>
+                                <span class="center">Pendência Solucionada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1 margin-top-15 float-right">
+                        <button (click)="atualizarFilas()" class="btn-safra-rounded margin-top-10">
+                            <i class="material-icons" data-toggle="tooltip" data-placement="left" title="Atualizar filas">refresh</i>
+                        </button>
+                    </div>
+                    <div class="col-sm-1 margin-top-15 float-right">
+                        <button (click)="showLegendas()" class="btn-safra-rounded margin-top-10" data-toggle="tooltip" data-placement="left" title="Legenda">
+                            <i class="material-icons">info_outline</i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="tipoFilas" class="container-fluid">
+        <div class="row h6 blue-gray white-text center padding-5">
+            <div class="col-sm-1 center bold"></div>
+            <div class="col-sm-1 center bold">#</div>
+            <div class="col-sm-1 center bold">TIPO</div>
+            <div class="col-sm-5 center bold">DESCRIÇÃO</div>
+            <div class="col-sm-1 center bold">QTD. NA FILA</div>
+            <div class="col-sm-1 center bold">QTD. EM ANALISE</div>
+            <div class="col-sm-1 center bold">USU&Aacute;RIOS FILA</div>
+            <div class="col-sm-1 center bold">USU&Aacute;RIOS ANALISE</div>
+        </div>
+    </div>
+
+    <fila-geral [filaGeral]='filaGeral' [idCliente]='idCliente'></fila-geral>      
+    <fila-pessoal *ngIf="filaPessoal != null && filaPessoal.length > 0" [filaPessoal]='filaPessoalFiltro'></fila-pessoal>
+    <fila-comite *ngIf="filaComite != null && filaComite.length > 0" [filaComite]='filaComite'></fila-comite>
+    <fila-proposta-decidida *ngIf="propostaDecidida != null" [idCliente]='idCliente' [propostaDecidida]='propostaDecidida'></fila-proposta-decidida>      
+</div>

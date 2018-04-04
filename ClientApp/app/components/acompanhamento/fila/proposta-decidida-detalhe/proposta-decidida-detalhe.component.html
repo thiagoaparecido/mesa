@@ -1,0 +1,47 @@
+<spinner [loading]='loading'></spinner>
+<div class="container-fluid">
+    <table class="table margin-top-10">
+        <thead class="h6">
+            <th class="center">Proposta</th>
+            <th class="center">Produto</th>
+            <th class="center">Fila</th>
+            <th class="center">Proponente</th>
+            <th class="center">CPF/CNPJ</th>
+            <th class="center">Prioridade</th>
+            <th class="center">Data Inclusão</th>
+            <th class="center">Alçada</th>
+            <th class="center">Usuário</th>
+            <th class="center">Espera</th>
+            <th class="center">Mesa</th>
+            <th class="center">Análise</th>
+            <th class="center">Início Análise</th>
+        </thead>
+
+        <tr *ngFor='let item of propostaDecididaDetalhe'>
+                <td>{{ item.id_proposta }}</td>
+                <td>{{ item.ds_produto }}</td>
+                <td>{{ item.id_fila }}</td>
+                <td>{{ item.nm_cliente_razao_social }}</td>
+                
+                 <td>
+                    <div *ngIf="item.id_cliente.toString().length <= 11">{{ item.id_cliente | cpfMask }}</div>
+                    <div *ngIf="item.id_cliente.toString().length > 11">{{ item.id_cliente | cnpjMask }}</div>
+                 </td>
+                               
+                <td>{{ item.id_prioridade }}</td>
+                <td>{{ item.dt_inclusao  | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{ item.ds_alcada }}</td>
+                <td>{{ item.id_usucodigo }}</td>
+                <td>{{ item.tp_fila }}</td>
+                <td>{{ item.tp_mesa }}</td>
+                <td>{{ item.tp_analise }}</td>
+                <td>{{ item.dt_inicio_analise }}</td>
+                <td class="right">                    
+                    <i class="material-icons margin-lateral-5 icon-sm" *ngIf="!popup" (click)="visualizarProposta(item.id_proposta)" data-placement="left" title="Visualizar proposta">visibility</i>                                    
+                </td>
+        </tr>
+    </table>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>   
+    

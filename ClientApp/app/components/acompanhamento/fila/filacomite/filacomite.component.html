@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row h6 black white-text center padding-5">
+        <div class="col-sm-12 center bold">ALÇADA COMITÊ</div>
+    </div>
+
+    <table class="table">
+        <thead class="h6">
+            <th>Proposta</th>
+            <th>Produto</th>
+            <th>Proponente</th>
+            <th>CPF/CNPJ</th>
+            <th>Prioridade</th>
+            <th>Data Inclusão</th>
+            <th>Alçada</th>
+            <th>Usuário</th>
+            <th>Espera</th>
+            <th>Mesa</th>
+            <th>Análise</th>
+            <th>Início Análise</th>
+            <th class="center">Ações</th>
+        </thead>
+
+        <tr *ngFor="let item of filaComite" [ngClass]='getColor(item.id_cliente)'>
+            <td data-tooltip="Código para envio do fax: 3871157">{{ item.id_proposta }}</td>
+            <td>{{ item.ds_produto }}</td>
+            <td>{{ item.nm_cliente_rsoc }}</td>
+            <td>
+                <div *ngIf="item.id_cliente.toString().length === 11">{{ item.id_cliente | cpfMask }}</div>
+                <div *ngIf="item.id_cliente.toString().length > 11">{{ item.id_cliente | cnpjMask }}</div>
+            </td>
+            <td>{{ item.id_prioridade }}</td>
+            <td>{{ item.dt_inclusao | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td>{{ item.cargo_1 }}</td>
+            <td>{{ item.usuario_1 }}</td>
+            <td>{{ item.data_1 }}</td>
+            <td>{{ item.data_2 }}</td>
+            <td>{{ item.id_status_analise }}</td>
+            <td>{{ item.data_1 }}</td>
+            <td>
+                <i class="material-icons margin-lateral-5 icon-sm">insert_photo</i>
+                <filapessoal-proposta-acompanhamento [idProposta]='item.id_proposta' [tpMesa]='item.tp_mesa' data-toggle="tooltip" data-placement="left" title="Histórico de análise"></filapessoal-proposta-acompanhamento>
+                <i class="material-icons margin-lateral-5 icon-sm" (click)="visualizarProposta(item?.id_proposta)">pageview</i>
+                <i class="material-icons margin-lateral-5 icon-sm" (click)="editarProposta(item?.id_proposta)">play_arrow</i>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<modal-alert class="modal-common" titulo="Atenção" [mensagem]="mensagem" *ngIf="exibirModal" (fecharModal)="fecharModal($event)"></modal-alert>   

@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Mesa de Crédito";
+}
+
+<!-- <app asp-prerender-module="ClientApp/dist/main-server">Loading...</app> -->
+<app asp-ng2-prerender-module="ClientApp/dist/main-server">
+    <h1 style="text-align: center;color: rgba(0, 89, 111, 0.7);margin-top:20px;">Safra Financeira</h1>
+</app>
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}
